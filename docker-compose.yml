@@ -1,0 +1,142 @@
+services:
+  mongo:
+    image: mongo:7
+    container_name: leen-mongo
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongo-data:/data/db
+
+  gateway:
+    build:
+      context: .
+      dockerfile: gateway/Dockerfile
+    ports:
+      - '8080:8080'
+    environment:
+      PORT: 8080
+      JWT_SECRET: change-me
+      AUTH_SERVICE_URL: http://auth-service:4001
+      CATALOG_SERVICE_URL: http://catalog-service:4002
+      BOOKING_SERVICE_URL: http://booking-service:4003
+      PAYMENT_SERVICE_URL: http://payment-service:4004
+      CHAT_SERVICE_URL: http://chat-service:4005
+      SUPPORT_SERVICE_URL: http://support-dispute-service:4006
+      NOTIFICATION_SERVICE_URL: http://notification-service:4007
+      ADMIN_SERVICE_URL: http://admin-service:4008
+    depends_on:
+      - auth-service
+      - catalog-service
+      - booking-service
+      - payment-service
+      - chat-service
+      - support-dispute-service
+      - notification-service
+      - admin-service
+
+  auth-service:
+    build:
+      context: .
+      dockerfile: services/auth-service/Dockerfile
+    ports:
+      - '4001:4001'
+    environment:
+      PORT: 4001
+      MONGO_URI: mongodb://mongo:27017/leen_auth
+      JWT_SECRET: change-me
+    depends_on:
+      - mongo
+
+  catalog-service:
+    build:
+      context: .
+      dockerfile: services/catalog-service/Dockerfile
+    ports:
+      - '4002:4002'
+    environment:
+      PORT: 4002
+      MONGO_URI: mongodb://mongo:27017/leen_catalog
+      JWT_SECRET: change-me
+    depends_on:
+      - mongo
+
+  booking-service:
+    build:
+      context: .
+      dockerfile: services/booking-service/Dockerfile
+    ports:
+      - '4003:4003'
+    environment:
+      PORT: 4003
+      MONGO_URI: mongodb://mongo:27017/leen_booking
+      JWT_SECRET: change-me
+    depends_on:
+      - mongo
+
+  payment-service:
+    build:
+      context: .
+      dockerfile: services/payment-service/Dockerfile
+    ports:
+      - '4004:4004'
+    environment:
+      PORT: 4004
+      MONGO_URI: mongodb://mongo:27017/leen_payment
+      JWT_SECRET: change-me
+    depends_on:
+      - mongo
+
+  chat-service:
+    build:
+      context: .
+      dockerfile: services/chat-service/Dockerfile
+    ports:
+      - '4005:4005'
+    environment:
+      PORT: 4005
+      MONGO_URI: mongodb://mongo:27017/leen_chat
+      JWT_SECRET: change-me
+    depends_on:
+      - mongo
+
+  support-dispute-service:
+    build:
+      context: .
+      dockerfile: services/support-dispute-service/Dockerfile
+    ports:
+      - '4006:4006'
+    environment:
+      PORT: 4006
+      MONGO_URI: mongodb://mongo:27017/leen_support
+      JWT_SECRET: change-me
+    depends_on:
+      - mongo
+
+  notification-service:
+    build:
+      context: .
+      dockerfile: services/notification-service/Dockerfile
+    ports:
+      - '4007:4007'
+    environment:
+      PORT: 4007
+      MONGO_URI: mongodb://mongo:27017/leen_notification
+      JWT_SECRET: change-me
+    depends_on:
+      - mongo
+
+  admin-service:
+    build:
+      context: .
+      dockerfile: services/admin-service/Dockerfile
+    ports:
+      - '4008:4008'
+    environment:
+      PORT: 4008
+      MONGO_URI: mongodb://mongo:27017/leen_admin
+      JWT_SECRET: change-me
+    depends_on:
+      - mongo
+
+volumes:
+  mongo-data:

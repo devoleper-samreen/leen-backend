@@ -1,0 +1,35 @@
+{
+  "name": "leen-backend",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Leen V4 backend - Node/Express/MongoDB microservices monorepo",
+  "workspaces": [
+    "shared",
+    "gateway",
+    "services/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "dev:gateway": "npm run dev -w gateway",
+    "dev:auth": "npm run dev -w services/auth-service",
+    "dev:catalog": "npm run dev -w services/catalog-service",
+    "dev:booking": "npm run dev -w services/booking-service",
+    "dev:payment": "npm run dev -w services/payment-service",
+    "dev:chat": "npm run dev -w services/chat-service",
+    "dev:support": "npm run dev -w services/support-dispute-service",
+    "dev:notification": "npm run dev -w services/notification-service",
+    "dev:admin": "npm run dev -w services/admin-service",
+    "lint": "eslint . --ext .ts",
+    "format": "prettier --write \"**/*.{ts,json,md,yaml,yml}\""
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "eslint": "^8.57.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.4"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

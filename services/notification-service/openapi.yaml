@@ -1,0 +1,33 @@
+openapi: 3.0.3
+info:
+  title: Leen Notification Service
+  version: 1.0.0
+  description: Push/SMS/email/in-app notifications and device token registry.
+servers:
+  - url: /api/notifications
+paths:
+  /:
+    get:
+      summary: List the authenticated user's notifications
+      tags: [Notifications]
+      security: [{ bearerAuth: [] }]
+      responses:
+        '200': { description: OK }
+  /{id}/read:
+    post:
+      summary: Mark a notification as read
+      tags: [Notifications]
+      security: [{ bearerAuth: [] }]
+      parameters: [{ name: id, in: path, required: true, schema: { type: string } }]
+      responses:
+        '200': { description: Marked read }
+  /device-tokens:
+    post:
+      summary: Register a push notification device token
+      tags: [Notifications]
+      security: [{ bearerAuth: [] }]
+      responses:
+        '201': { description: Registered }
+components:
+  securitySchemes:
+    bearerAuth: { type: http, scheme: bearer, bearerFormat: JWT }

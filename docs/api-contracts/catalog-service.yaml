@@ -1,0 +1,119 @@
+openapi: 3.0.3
+info:
+  title: Leen Catalog Service
+  version: 1.0.0
+  description: Cities, categories, sub-categories, services, pricing tiers, job templates, promo codes.
+servers:
+  - url: /api/catalog
+paths:
+  /cities:
+    get:
+      summary: List cities
+      tags: [Catalog]
+      responses:
+        '200': { description: OK }
+    post:
+      summary: Create/update a city (draft or publish)
+      tags: [Catalog]
+      security: [{ bearerAuth: [] }]
+      responses:
+        '200': { description: OK }
+  /categories:
+    get:
+      summary: List categories
+      tags: [Catalog]
+      responses:
+        '200': { description: OK }
+    post:
+      summary: Create/update a category
+      tags: [Catalog]
+      security: [{ bearerAuth: [] }]
+      responses:
+        '200': { description: OK }
+  /sub-categories:
+    get:
+      summary: List sub-categories (optionally filtered by parent category)
+      tags: [Catalog]
+      responses:
+        '200': { description: OK }
+    post:
+      summary: Create/update a sub-category
+      tags: [Catalog]
+      security: [{ bearerAuth: [] }]
+      responses:
+        '200': { description: OK }
+  /services:
+    get:
+      summary: List published services (Dashboard/Services tab catalog browse)
+      tags: [Catalog]
+      responses:
+        '200': { description: OK, content: { application/json: { schema: { $ref: '#/components/schemas/Service' } } } }
+  /services/{id}:
+    get:
+      summary: Get single service detail (what's included)
+      tags: [Catalog]
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: string } }
+      responses:
+        '200': { description: OK }
+  /pricing-tiers:
+    get:
+      summary: Get pricing tiers for a category (e.g. Cleaning 1BR/2BR/3BR/Villa)
+      tags: [Pricing]
+      responses:
+        '200': { description: OK }
+    post:
+      summary: Set base price + surge/off-peak windows for a category tier
+      tags: [Pricing]
+      security: [{ bearerAuth: [] }]
+      responses:
+        '200': { description: OK }
+  /job-templates:
+    get:
+      summary: List job templates
+      tags: [JobTemplates]
+      security: [{ bearerAuth: [] }]
+      responses:
+        '200': { description: OK }
+    post:
+      summary: Create/update a job template (draft)
+      tags: [JobTemplates]
+      security: [{ bearerAuth: [] }]
+      responses:
+        '200': { description: OK }
+  /job-templates/{id}/publish:
+    post:
+      summary: Publish a job template to the live catalog
+      tags: [JobTemplates]
+      security: [{ bearerAuth: [] }]
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: string } }
+      responses:
+        '200': { description: Published }
+  /promo-codes:
+    get:
+      summary: List promo codes
+      tags: [Promo]
+      security: [{ bearerAuth: [] }]
+      responses:
+        '200': { description: OK }
+    post:
+      summary: Create a promo code
+      tags: [Promo]
+      security: [{ bearerAuth: [] }]
+      responses:
+        '201': { description: Created }
+components:
+  securitySchemes:
+    bearerAuth: { type: http, scheme: bearer, bearerFormat: JWT }
+  schemas:
+    LocalizedText:
+      type: object
+      properties: { en: { type: string }, ar: { type: string } }
+    Service:
+      type: object
+      properties:
+        id: { type: string }
+        subCategoryId: { type: string }
+        name: { $ref: '#/components/schemas/LocalizedText' }
+        status: { type: string, enum: [draft, live] }

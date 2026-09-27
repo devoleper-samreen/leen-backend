@@ -1,0 +1,61 @@
+openapi: 3.0.3
+info:
+  title: Leen Payment Service
+  version: 1.0.0
+  description: Payments, wallets, partner payouts, customer refunds, commission ledger.
+servers:
+  - url: /api/payments
+paths:
+  /charge:
+    post:
+      summary: Charge a booking payment (card/wallet/cash)
+      tags: [Payments]
+      security: [{ bearerAuth: [] }]
+      responses:
+        '201': { description: Charged }
+  /wallet:
+    get:
+      summary: Get the authenticated user's wallet (balance, bank details)
+      tags: [Wallet]
+      security: [{ bearerAuth: [] }]
+      responses:
+        '200': { description: OK }
+  /payouts:
+    get:
+      summary: List payout requests (Partner's own, or Admin's queue with period/status filters)
+      tags: [Payouts]
+      security: [{ bearerAuth: [] }]
+      responses:
+        '200': { description: OK }
+    post:
+      summary: Partner submits a withdrawal/payout request
+      tags: [Payouts]
+      security: [{ bearerAuth: [] }]
+      responses:
+        '201': { description: Requested }
+  /payouts/{id}/approve:
+    post:
+      summary: Admin approves a payout batch (triggers bank transfer)
+      tags: [Payouts]
+      security: [{ bearerAuth: [] }]
+      parameters: [{ name: id, in: path, required: true, schema: { type: string } }]
+      responses:
+        '200': { description: Approved }
+  /refunds:
+    get:
+      summary: List refund requests (tabs Refund Request/Refund Done)
+      tags: [Refunds]
+      security: [{ bearerAuth: [] }]
+      responses:
+        '200': { description: OK }
+  /refunds/{id}/process:
+    post:
+      summary: Process a customer refund (with optional partner penalty)
+      tags: [Refunds]
+      security: [{ bearerAuth: [] }]
+      parameters: [{ name: id, in: path, required: true, schema: { type: string } }]
+      responses:
+        '200': { description: Processed }
+components:
+  securitySchemes:
+    bearerAuth: { type: http, scheme: bearer, bearerFormat: JWT }

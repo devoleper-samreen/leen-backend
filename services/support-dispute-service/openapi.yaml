@@ -1,0 +1,94 @@
+openapi: 3.0.3
+info:
+  title: Leen Support & Disputes Service
+  version: 1.0.0
+  description: >
+    Help & Support tickets (Customer/Partner/Admin, general assistance only)
+    and Disputes (Customer/Partner raise, Admin resolves).
+servers:
+  - url: /api
+paths:
+  /support/tickets:
+    post:
+      summary: Create a support ticket (category + details + attachments)
+      tags: [Support]
+      security: [{ bearerAuth: [] }]
+      responses:
+        '201': { description: Created }
+    get:
+      summary: List support tickets
+      tags: [Support]
+      security: [{ bearerAuth: [] }]
+      responses:
+        '200': { description: OK }
+  /support/tickets/{id}/reply:
+    post:
+      summary: Admin/support team replies to a ticket
+      tags: [Support]
+      security: [{ bearerAuth: [] }]
+      parameters: [{ name: id, in: path, required: true, schema: { type: string } }]
+      responses:
+        '200': { description: Replied }
+  /support/tickets/{id}/resolve:
+    post:
+      summary: Mark ticket resolved and notify the user (then closed)
+      tags: [Support]
+      security: [{ bearerAuth: [] }]
+      parameters: [{ name: id, in: path, required: true, schema: { type: string } }]
+      responses:
+        '200': { description: Resolved }
+  /disputes:
+    post:
+      summary: Raise a dispute against a booking (Customer or Partner only)
+      tags: [Disputes]
+      security: [{ bearerAuth: [] }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/RaiseDisputeRequest' }
+      responses:
+        '201': { description: Dispute opened }
+    get:
+      summary: List disputes (Admin's All Disputes table, or own disputes)
+      tags: [Disputes]
+      security: [{ bearerAuth: [] }]
+      responses:
+        '200': { description: OK }
+  /disputes/{id}:
+    get:
+      summary: Get dispute detail (auto-linked booking/user/payment context)
+      tags: [Disputes]
+      security: [{ bearerAuth: [] }]
+      parameters: [{ name: id, in: path, required: true, schema: { type: string } }]
+      responses:
+        '200': { description: OK }
+  /disputes/{id}/evidence:
+    post:
+      summary: Add evidence (photos/videos/details) - either party
+      tags: [Disputes]
+      security: [{ bearerAuth: [] }]
+      parameters: [{ name: id, in: path, required: true, schema: { type: string } }]
+      responses:
+        '200': { description: Evidence added }
+  /disputes/{id}/resolve:
+    post:
+      summary: Admin resolves - sets fault decision + outcome + status
+      tags: [Disputes]
+      security: [{ bearerAuth: [] }]
+      parameters: [{ name: id, in: path, required: true, schema: { type: string } }]
+      responses:
+        '200': { description: Resolved }
+components:
+  securitySchemes:
+    bearerAuth: { type: http, scheme: bearer, bearerFormat: JWT }
+  schemas:
+    RaiseDisputeRequest:
+      type: object
+      required: [bookingId, category]
+      properties:
+        bookingId: { type: string }
+        category:
+          type: string
+          enum: [service_issue, poor_quality, service_incomplete, damage, refund_request, other]
+        details: { type: string }

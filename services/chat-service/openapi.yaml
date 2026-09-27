@@ -1,0 +1,52 @@
+openapi: 3.0.3
+info:
+  title: Leen Chat Service
+  version: 1.0.0
+  description: >
+    Predefined-message-only chat between Customer and Staff for a booking.
+    No free text, no audio/video, no contact-info sharing (enforced structurally
+    by only ever referencing a PredefinedMessageTemplate id).
+servers:
+  - url: /api/chat
+paths:
+  /templates:
+    get:
+      summary: List predefined message templates (by role scope)
+      tags: [Chat]
+      security: [{ bearerAuth: [] }]
+      responses:
+        '200': { description: OK }
+  /bookings/{bookingId}/conversation:
+    get:
+      summary: Get (or lazily create) the conversation for a booking
+      tags: [Chat]
+      security: [{ bearerAuth: [] }]
+      parameters: [{ name: bookingId, in: path, required: true, schema: { type: string } }]
+      responses:
+        '200': { description: OK }
+  /conversations/{id}/messages:
+    get:
+      summary: List messages in a conversation
+      tags: [Chat]
+      security: [{ bearerAuth: [] }]
+      parameters: [{ name: id, in: path, required: true, schema: { type: string } }]
+      responses:
+        '200': { description: OK }
+    post:
+      summary: Send a predefined-template message
+      tags: [Chat]
+      security: [{ bearerAuth: [] }]
+      parameters: [{ name: id, in: path, required: true, schema: { type: string } }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [templateId]
+              properties: { templateId: { type: string } }
+      responses:
+        '201': { description: Sent }
+components:
+  securitySchemes:
+    bearerAuth: { type: http, scheme: bearer, bearerFormat: JWT }

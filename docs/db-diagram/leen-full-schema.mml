@@ -1,0 +1,2409 @@
+{
+  "version": "0.1",
+  "tables": [
+    {
+      "id": "34f8671c-4324-4296-bf62-f889e6eedb15",
+      "tableName": "User",
+      "fields": [
+        {
+          "id": "896ae410-f3b1-4464-bd3d-3af238974c5f",
+          "PK": true,
+          "name": "_id",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "def4aba4-7bf3-4e49-b3e0-0df85f91dfef",
+          "PK": false,
+          "name": "phone",
+          "type": "string",
+          "isNN": true
+        },
+        {
+          "id": "15d4e77f-8bd6-4d41-904e-2f455f3fac69",
+          "PK": false,
+          "name": "email",
+          "type": "string"
+        },
+        {
+          "id": "a7f84d8c-3062-46b1-ab8e-61bd8c3d8bb3",
+          "PK": false,
+          "name": "passwordHash",
+          "type": "string",
+          "isNN": true
+        },
+        {
+          "id": "14a3a49e-a4eb-4168-b2ce-0e22f95c7f76",
+          "PK": false,
+          "name": "role",
+          "type": "enum",
+          "isNN": true
+        },
+        {
+          "id": "e9d82812-4c7c-42b0-9a72-3af5ba97ea32",
+          "PK": false,
+          "name": "status",
+          "type": "enum",
+          "isNN": true
+        },
+        {
+          "id": "c41995f2-6277-4b00-8e19-d6a6b1460398",
+          "PK": false,
+          "name": "language",
+          "type": "enum",
+          "isNN": true
+        }
+      ],
+      "x": 40,
+      "y": 90,
+      "width": 340
+    },
+    {
+      "id": "7b38fcb8-ede3-4dba-8656-5941fa17feb5",
+      "tableName": "CustomerProfile",
+      "fields": [
+        {
+          "id": "d8a603a7-f43d-4d4e-8fb5-470473fa587a",
+          "PK": true,
+          "name": "_id",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "f197c2e7-8ca9-4764-b8e9-e4ce106eeb07",
+          "PK": false,
+          "name": "userId",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "984f7134-200f-4d09-b5bc-90ff83d85727",
+          "PK": false,
+          "name": "fullName",
+          "type": "string",
+          "isNN": true
+        },
+        {
+          "id": "a0f55d56-c107-498c-9ac3-45c1a9116454",
+          "PK": false,
+          "name": "addresses",
+          "type": "object",
+          "isArray": true,
+          "children": [
+            {
+              "id": "b270dcf8-0fdf-49f0-9435-3be9ebf971db",
+              "PK": false,
+              "name": "label",
+              "type": "string",
+              "isNN": true
+            },
+            {
+              "id": "29ac0028-afea-45b4-afaa-56f4eb9afc93",
+              "PK": false,
+              "name": "lat",
+              "type": "double",
+              "isNN": true
+            },
+            {
+              "id": "f6854bf0-b29d-4cc4-9799-25c55cf28397",
+              "PK": false,
+              "name": "lng",
+              "type": "double",
+              "isNN": true
+            },
+            {
+              "id": "06364b9e-9015-45e5-913a-bbb9f7c99ea2",
+              "PK": false,
+              "name": "formatted",
+              "type": "string",
+              "isNN": true
+            },
+            {
+              "id": "73f9f562-5197-4bc1-9841-8fd0d34238b8",
+              "PK": false,
+              "name": "isPrimary",
+              "type": "bool"
+            }
+          ]
+        }
+      ],
+      "x": 40,
+      "y": 384,
+      "width": 340
+    },
+    {
+      "id": "9d9d3a60-b5e2-4697-b1c9-9b8ea233744c",
+      "tableName": "PartnerProfile",
+      "fields": [
+        {
+          "id": "4f1034ae-fbb7-4618-a552-cf02a768baee",
+          "PK": true,
+          "name": "_id",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "4f9ef13a-f9aa-4720-97e6-35c4313bfa5c",
+          "PK": false,
+          "name": "userId",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "5b55b143-0589-4532-b998-91fae504e9fc",
+          "PK": false,
+          "name": "fullName",
+          "type": "string",
+          "isNN": true
+        },
+        {
+          "id": "a70e19ce-ed43-4880-a907-290ccf55dc90",
+          "PK": false,
+          "name": "photoUrl",
+          "type": "string"
+        },
+        {
+          "id": "0ef5ea52-a3f7-4266-ae20-9ab709c40f1a",
+          "PK": false,
+          "name": "dob",
+          "type": "date"
+        },
+        {
+          "id": "2cc2d5e3-5313-446e-a7c8-c3eb9ab6408b",
+          "PK": false,
+          "name": "idNumber",
+          "type": "string",
+          "isNN": true
+        },
+        {
+          "id": "111bf3c5-01d1-46c1-b7d6-d33d1dc98b3e",
+          "PK": false,
+          "name": "companyRegistrationNumber",
+          "type": "string",
+          "isNN": true
+        },
+        {
+          "id": "8e2195ef-1c6b-482b-962a-1e192413eca7",
+          "PK": false,
+          "name": "commissionRatePct",
+          "type": "double",
+          "isNN": true
+        },
+        {
+          "id": "2cfcf3a6-987f-4133-a2db-e2db9cca370b",
+          "PK": false,
+          "name": "slaAgreementSignedAt",
+          "type": "date"
+        },
+        {
+          "id": "8b2f4b31-48bf-44c0-91e7-098f743aa91f",
+          "PK": false,
+          "name": "categories",
+          "type": "objectId",
+          "isArray": true
+        },
+        {
+          "id": "a43658c9-8e10-4b9b-be87-730ae37f5c60",
+          "PK": false,
+          "name": "coverageRadiusKm",
+          "type": "double"
+        },
+        {
+          "id": "6f5c1d0e-6552-4f97-911a-5e5431188360",
+          "PK": false,
+          "name": "coverageZones",
+          "type": "string",
+          "isArray": true
+        },
+        {
+          "id": "623fbe26-f703-4cdc-8bef-bfbd0328eb0c",
+          "PK": false,
+          "name": "approvalStatus",
+          "type": "enum",
+          "isNN": true
+        },
+        {
+          "id": "5d9f0d14-9f16-414a-9fb6-538d8150acfb",
+          "PK": false,
+          "name": "rejectionReason",
+          "type": "string"
+        }
+      ],
+      "x": 40,
+      "y": 600,
+      "width": 340
+    },
+    {
+      "id": "8d60f558-d71d-4d39-a8f2-01fe44578872",
+      "tableName": "StaffProfile",
+      "fields": [
+        {
+          "id": "0dabb9f1-380e-4176-90be-900aa6260cc5",
+          "PK": true,
+          "name": "_id",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "340105dd-4587-4cba-babc-7d9f44726e8f",
+          "PK": false,
+          "name": "userId",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "445725a4-41f8-40d1-941d-f7acb92d8cfb",
+          "PK": false,
+          "name": "partnerId",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "cc663f5b-7f90-4049-b6d7-d5919922b10c",
+          "PK": false,
+          "name": "fullName",
+          "type": "string",
+          "isNN": true
+        },
+        {
+          "id": "b5a3cc48-e09b-492c-ba5a-4cca1fefe849",
+          "PK": false,
+          "name": "probationEndsAt",
+          "type": "date"
+        },
+        {
+          "id": "8c270248-73f1-4364-9ba2-be861f85cf0a",
+          "PK": false,
+          "name": "isOnProbation",
+          "type": "bool"
+        }
+      ],
+      "x": 40,
+      "y": 1076,
+      "width": 340
+    },
+    {
+      "id": "b1372624-3916-4ae0-a9ad-cc0489be076e",
+      "tableName": "AdminProfile",
+      "fields": [
+        {
+          "id": "940b1ad9-8a89-4a56-bfd5-e0018bb157a3",
+          "PK": true,
+          "name": "_id",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "93c101fa-1686-4a9b-958d-44ff9dc5d998",
+          "PK": false,
+          "name": "userId",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "30ea9117-f1ce-4ccd-8578-18cc67863973",
+          "PK": false,
+          "name": "fullName",
+          "type": "string",
+          "isNN": true
+        },
+        {
+          "id": "ed0024a3-6c05-4215-b205-545524205046",
+          "PK": false,
+          "name": "roleId",
+          "type": "objectId"
+        },
+        {
+          "id": "a2658934-984c-4c20-a3c9-ee00f9023e22",
+          "PK": false,
+          "name": "isSuperAdmin",
+          "type": "bool"
+        }
+      ],
+      "x": 40,
+      "y": 1344,
+      "width": 340
+    },
+    {
+      "id": "d9e3865c-7b68-49ec-8256-c67b5b5001a1",
+      "tableName": "Role",
+      "fields": [
+        {
+          "id": "790b088e-21d9-4959-99d7-ba58318b2c38",
+          "PK": true,
+          "name": "_id",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "3a567472-25ff-4d85-8fbd-e3078d1e925b",
+          "PK": false,
+          "name": "name",
+          "type": "string",
+          "isNN": true
+        },
+        {
+          "id": "921defc4-31b1-4de2-9587-f6418b94f50f",
+          "PK": false,
+          "name": "permissions",
+          "type": "object",
+          "isArray": true,
+          "children": [
+            {
+              "id": "de9327ce-9a5e-4d4a-918b-064941c9894e",
+              "PK": false,
+              "name": "module",
+              "type": "enum",
+              "isNN": true
+            },
+            {
+              "id": "efed97ef-958a-4257-98a5-954c9c188bd8",
+              "PK": false,
+              "name": "accessLevel",
+              "type": "enum",
+              "isNN": true
+            }
+          ]
+        }
+      ],
+      "x": 40,
+      "y": 1586,
+      "width": 340
+    },
+    {
+      "id": "532c2def-43d1-4ed8-b251-4b7906ae2ed2",
+      "tableName": "OtpCode",
+      "fields": [
+        {
+          "id": "e86eadb8-eb12-431c-9ec0-08c2c21ff43e",
+          "PK": true,
+          "name": "_id",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "f59f0dd5-f6fa-4fbb-ac69-4e577265d39e",
+          "PK": false,
+          "name": "phone",
+          "type": "string",
+          "isNN": true
+        },
+        {
+          "id": "9744a959-e01c-4cdf-9851-2217d1fb8908",
+          "PK": false,
+          "name": "code",
+          "type": "string",
+          "isNN": true
+        },
+        {
+          "id": "78f99f74-b5fc-42db-a55d-bfd282a1b741",
+          "PK": false,
+          "name": "purpose",
+          "type": "enum",
+          "isNN": true
+        },
+        {
+          "id": "4423d3d1-8778-4e13-b32c-29542ce7d91b",
+          "PK": false,
+          "name": "expiresAt",
+          "type": "date",
+          "isNN": true
+        },
+        {
+          "id": "de2dc595-7eda-4ca7-af54-ced0bd63de81",
+          "PK": false,
+          "name": "consumedAt",
+          "type": "date"
+        }
+      ],
+      "x": 40,
+      "y": 1776,
+      "width": 340
+    },
+    {
+      "id": "3854a96e-7c70-45c9-8b8e-caa58f034aa2",
+      "tableName": "RefreshToken",
+      "fields": [
+        {
+          "id": "7a6c1fd3-ec74-410c-9740-2b15e8751f7f",
+          "PK": true,
+          "name": "_id",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "77946264-7dd5-457f-b77b-e38770c11016",
+          "PK": false,
+          "name": "userId",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "15021beb-c8da-4f53-b1af-7b08b9f97c4c",
+          "PK": false,
+          "name": "tokenHash",
+          "type": "string",
+          "isNN": true
+        },
+        {
+          "id": "3da20ce6-65ca-4c27-b547-284db626cb0b",
+          "PK": false,
+          "name": "expiresAt",
+          "type": "date",
+          "isNN": true
+        },
+        {
+          "id": "b702393c-9889-4273-bd72-21ff7d91369e",
+          "PK": false,
+          "name": "revokedAt",
+          "type": "date"
+        }
+      ],
+      "x": 40,
+      "y": 2044,
+      "width": 340
+    },
+    {
+      "id": "04ecfb53-91ba-4efb-b541-86699e6f684e",
+      "tableName": "City",
+      "fields": [
+        {
+          "id": "944aa448-a943-457f-b906-50bacd6f725c",
+          "PK": true,
+          "name": "_id",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "cf6390fc-1dfe-45c3-9f0c-3ec0a26eab6d",
+          "PK": false,
+          "name": "name",
+          "type": "object",
+          "isNN": true,
+          "children": [
+            {
+              "id": "b06f9143-1f5b-4486-b68c-e6b1edcd7f0b",
+              "PK": false,
+              "name": "en",
+              "type": "string",
+              "isNN": true
+            },
+            {
+              "id": "988d809a-1414-4c4d-bfde-ecfdab4e2529",
+              "PK": false,
+              "name": "ar",
+              "type": "string",
+              "isNN": true
+            }
+          ]
+        },
+        {
+          "id": "33d72e27-fb79-4de0-984e-ec2d80a5463b",
+          "PK": false,
+          "name": "status",
+          "type": "enum",
+          "isNN": true
+        }
+      ],
+      "x": 480,
+      "y": 90,
+      "width": 340
+    },
+    {
+      "id": "fe7b7046-8342-4392-a4fb-6c2513aea7c9",
+      "tableName": "Category",
+      "fields": [
+        {
+          "id": "1b82b08b-5af2-4fd9-ae2f-58b537c94e86",
+          "PK": true,
+          "name": "_id",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "17d9b30c-0a33-436d-93a9-109d7d23ec57",
+          "PK": false,
+          "name": "name",
+          "type": "object",
+          "isNN": true,
+          "children": [
+            {
+              "id": "3b29bc64-7939-4569-9994-ce92ed907e2a",
+              "PK": false,
+              "name": "en",
+              "type": "string",
+              "isNN": true
+            },
+            {
+              "id": "206c29c6-4417-443b-b642-5d49c8885b1f",
+              "PK": false,
+              "name": "ar",
+              "type": "string",
+              "isNN": true
+            }
+          ]
+        },
+        {
+          "id": "8ecaa6e6-55f3-44b1-ac86-4a6f64bdf774",
+          "PK": false,
+          "name": "icon",
+          "type": "string"
+        },
+        {
+          "id": "3bf560f3-7b02-4bd6-a5e2-a99c00a792aa",
+          "PK": false,
+          "name": "status",
+          "type": "enum",
+          "isNN": true
+        }
+      ],
+      "x": 480,
+      "y": 280,
+      "width": 340
+    },
+    {
+      "id": "249bd679-9c69-4163-9e17-5a4b263a8b2e",
+      "tableName": "SubCategory",
+      "fields": [
+        {
+          "id": "457ee4bb-059d-4351-910f-341d9b7df0ab",
+          "PK": true,
+          "name": "_id",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "1a60b77b-07f5-4d23-8037-df9258078aa8",
+          "PK": false,
+          "name": "name",
+          "type": "object",
+          "isNN": true,
+          "children": [
+            {
+              "id": "29baa783-9144-4753-bfe3-4bc8854db8af",
+              "PK": false,
+              "name": "en",
+              "type": "string",
+              "isNN": true
+            },
+            {
+              "id": "6178f497-6d6f-4441-8819-304b21dccbf1",
+              "PK": false,
+              "name": "ar",
+              "type": "string",
+              "isNN": true
+            }
+          ]
+        },
+        {
+          "id": "7d88912f-8e76-4b4a-855f-870f29bae0c3",
+          "PK": false,
+          "name": "icon",
+          "type": "string"
+        },
+        {
+          "id": "52a1e897-6df7-43ab-ab5c-33c08607889b",
+          "PK": false,
+          "name": "parentCategoryId",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "3847c993-2036-4f96-adab-ac0a7ac30e3a",
+          "PK": false,
+          "name": "coverageCityIds",
+          "type": "objectId",
+          "isArray": true
+        },
+        {
+          "id": "073a7083-48db-4c68-b4fa-2a5f425f1f70",
+          "PK": false,
+          "name": "status",
+          "type": "enum",
+          "isNN": true
+        }
+      ],
+      "x": 480,
+      "y": 496,
+      "width": 340
+    },
+    {
+      "id": "12a8e8fb-67d1-4aa6-9d69-72b19e981f4f",
+      "tableName": "Service",
+      "fields": [
+        {
+          "id": "34991149-de88-4376-b40c-fec1c7724370",
+          "PK": true,
+          "name": "_id",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "1e44e0ec-f200-4220-ab65-e38d27f4b6cc",
+          "PK": false,
+          "name": "subCategoryId",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "c2157985-c216-4cea-b574-4339ba857ccb",
+          "PK": false,
+          "name": "name",
+          "type": "object",
+          "isNN": true,
+          "children": [
+            {
+              "id": "a37b9e79-d7ba-43a4-baac-ff0ead685e6d",
+              "PK": false,
+              "name": "en",
+              "type": "string",
+              "isNN": true
+            },
+            {
+              "id": "5a9dc2f1-eb17-47a0-b8dc-f66632e2e072",
+              "PK": false,
+              "name": "ar",
+              "type": "string",
+              "isNN": true
+            }
+          ]
+        },
+        {
+          "id": "b0851a6e-cd68-4f66-8ea4-def8d23d577a",
+          "PK": false,
+          "name": "tier",
+          "type": "string"
+        },
+        {
+          "id": "830d0a74-aa31-40ce-8186-7c5504f65edd",
+          "PK": false,
+          "name": "description",
+          "type": "object",
+          "children": [
+            {
+              "id": "5a08dc8e-90f6-462f-b6d6-1ae6cc174cda",
+              "PK": false,
+              "name": "en",
+              "type": "string",
+              "isNN": true
+            },
+            {
+              "id": "39d1236e-bae4-49d3-b139-37bd6587bb66",
+              "PK": false,
+              "name": "ar",
+              "type": "string",
+              "isNN": true
+            }
+          ]
+        },
+        {
+          "id": "b3afe58d-8258-497e-bd58-dcded0617dfc",
+          "PK": false,
+          "name": "status",
+          "type": "enum",
+          "isNN": true
+        }
+      ],
+      "x": 480,
+      "y": 764,
+      "width": 340
+    },
+    {
+      "id": "67e4c4f6-8d06-422d-8d4d-14c245ed3d72",
+      "tableName": "PricingTier",
+      "fields": [
+        {
+          "id": "dcb9f2ff-4db0-4576-b4fc-05600e2c7cf6",
+          "PK": true,
+          "name": "_id",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "5a65b7f2-ee9e-4887-a9b0-f4e063f124ba",
+          "PK": false,
+          "name": "categoryId",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "43fd4dac-7fb7-464e-a681-8a0b67dc797c",
+          "PK": false,
+          "name": "tierName",
+          "type": "string",
+          "isNN": true
+        },
+        {
+          "id": "10ee3979-e8d4-472b-af2d-1f64d73010dd",
+          "PK": false,
+          "name": "basePriceOmr",
+          "type": "double",
+          "isNN": true
+        },
+        {
+          "id": "d7fd638b-53ed-4fc0-bac1-f5ae6a004f7b",
+          "PK": false,
+          "name": "surgeWindows",
+          "type": "object",
+          "isArray": true,
+          "children": [
+            {
+              "id": "bbb1b020-fedb-4941-9de4-621a55108680",
+              "PK": false,
+              "name": "adjustmentPct",
+              "type": "double",
+              "isNN": true
+            },
+            {
+              "id": "40eaae0e-2044-4124-b31f-33a81c58ec65",
+              "PK": false,
+              "name": "startDate",
+              "type": "date",
+              "isNN": true
+            },
+            {
+              "id": "66dd2e72-166a-4bea-a1d5-468ba4a30a04",
+              "PK": false,
+              "name": "endDate",
+              "type": "date",
+              "isNN": true
+            },
+            {
+              "id": "92491d42-6108-4a18-82cb-ceef62d08efc",
+              "PK": false,
+              "name": "startHour",
+              "type": "int",
+              "isNN": true
+            },
+            {
+              "id": "07fcf42c-2f45-42a5-b80d-dbdd39f834bd",
+              "PK": false,
+              "name": "endHour",
+              "type": "int",
+              "isNN": true
+            }
+          ]
+        }
+      ],
+      "x": 480,
+      "y": 1032,
+      "width": 340
+    },
+    {
+      "id": "cea2e91c-9b8d-4a08-98a1-895a2d9ab615",
+      "tableName": "JobTemplate",
+      "fields": [
+        {
+          "id": "b0fb356d-d33c-45f0-aa5c-f816c827db1e",
+          "PK": true,
+          "name": "_id",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "ae028bd1-c2f7-48f7-9e9e-a8e2e7e2a185",
+          "PK": false,
+          "name": "categoryId",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "6ed0fd62-4743-4c63-ac13-fb3dc80c387b",
+          "PK": false,
+          "name": "subCategoryId",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "48642f24-6c5c-4cab-840f-37e8b10f8d45",
+          "PK": false,
+          "name": "fields",
+          "type": "object",
+          "isArray": true,
+          "children": [
+            {
+              "id": "f975a249-562c-48c6-8891-f09d45bcfebc",
+              "PK": false,
+              "name": "key",
+              "type": "string",
+              "isNN": true
+            },
+            {
+              "id": "c189096d-309a-4bef-9443-64fd044858e6",
+              "PK": false,
+              "name": "label",
+              "type": "string",
+              "isNN": true
+            },
+            {
+              "id": "62fdc139-445c-4421-baba-54febda7c077",
+              "PK": false,
+              "name": "type",
+              "type": "enum",
+              "isNN": true
+            },
+            {
+              "id": "3dfcc1cd-1408-4b03-8c3b-7c6ee200483c",
+              "PK": false,
+              "name": "value",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "id": "0ab9f48f-50c4-4593-8cb0-44464dcd4d40",
+          "PK": false,
+          "name": "status",
+          "type": "enum",
+          "isNN": true
+        }
+      ],
+      "x": 480,
+      "y": 1274,
+      "width": 340
+    },
+    {
+      "id": "35c96308-54ce-4582-8f20-0b7aacbcba56",
+      "tableName": "PromoCode",
+      "fields": [
+        {
+          "id": "a5ee7f7e-0276-4fd1-819e-26420129e9b8",
+          "PK": true,
+          "name": "_id",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "67ca1a19-43a7-4469-8200-4aaac7f7452b",
+          "PK": false,
+          "name": "code",
+          "type": "string",
+          "isNN": true
+        },
+        {
+          "id": "f2a8933d-06df-449b-9497-7c9bf21b7c5e",
+          "PK": false,
+          "name": "categoryIds",
+          "type": "objectId",
+          "isArray": true
+        },
+        {
+          "id": "a54b60a9-78de-4faa-99f5-bdb22c3a63af",
+          "PK": false,
+          "name": "subCategoryIds",
+          "type": "objectId",
+          "isArray": true
+        },
+        {
+          "id": "d6f35b10-0ad7-4289-9b77-945a65a5d2e2",
+          "PK": false,
+          "name": "discountPct",
+          "type": "double",
+          "isNN": true
+        },
+        {
+          "id": "5079a911-e73f-41a2-bede-994b3e8dbc9a",
+          "PK": false,
+          "name": "expiresAt",
+          "type": "date",
+          "isNN": true
+        },
+        {
+          "id": "ae7aaa79-fbc8-45fc-9e75-3a9d6484956f",
+          "PK": false,
+          "name": "maxUses",
+          "type": "int",
+          "isNN": true
+        },
+        {
+          "id": "0e29d137-15cf-4ed3-a0dc-b6e983db7113",
+          "PK": false,
+          "name": "usedCount",
+          "type": "int",
+          "isNN": true
+        },
+        {
+          "id": "844f4d97-3385-4e2b-b2b5-5a88b7947011",
+          "PK": false,
+          "name": "leenAbsorbs",
+          "type": "bool"
+        },
+        {
+          "id": "5fc0fe95-082e-4c30-8add-4fc1567ad911",
+          "PK": false,
+          "name": "status",
+          "type": "enum",
+          "isNN": true
+        }
+      ],
+      "x": 480,
+      "y": 1516,
+      "width": 340
+    },
+    {
+      "id": "dd18792c-4371-4d2d-abb1-1b3f5e1f7ebb",
+      "tableName": "Booking",
+      "fields": [
+        {
+          "id": "d2d6c4cb-70f8-4793-8afd-171306a53347",
+          "PK": true,
+          "name": "_id",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "f7530ba0-a805-4829-8745-6ed440866afc",
+          "PK": false,
+          "name": "customerId",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "a00c2e26-a314-4cd8-9cb3-07cd0c291861",
+          "PK": false,
+          "name": "partnerId",
+          "type": "objectId"
+        },
+        {
+          "id": "55c18bff-8aab-4261-8d15-614354c0949b",
+          "PK": false,
+          "name": "staffId",
+          "type": "objectId"
+        },
+        {
+          "id": "f0b4c4a1-d8a9-4bce-940a-bbaee0abde32",
+          "PK": false,
+          "name": "serviceId",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "5bf0a265-fd48-4e14-a362-70d24c00fbbc",
+          "PK": false,
+          "name": "type",
+          "type": "enum",
+          "isNN": true
+        },
+        {
+          "id": "e5dfe116-1025-4111-b8df-7dbebf1bd779",
+          "PK": false,
+          "name": "status",
+          "type": "enum",
+          "isNN": true
+        },
+        {
+          "id": "05fcf572-856b-4f5b-8917-6eaa152c7d30",
+          "PK": false,
+          "name": "scheduledFor",
+          "type": "date"
+        },
+        {
+          "id": "8d357dc0-72a6-4568-bf36-67d8b06133aa",
+          "PK": false,
+          "name": "address",
+          "type": "object",
+          "isNN": true,
+          "children": [
+            {
+              "id": "ecfde4ad-8755-4ed9-b8a4-0d66b9a2e67b",
+              "PK": false,
+              "name": "formatted",
+              "type": "string",
+              "isNN": true
+            },
+            {
+              "id": "0a042045-ac90-4b42-b2c2-7b2d97ad9c15",
+              "PK": false,
+              "name": "lat",
+              "type": "double",
+              "isNN": true
+            },
+            {
+              "id": "86ce308f-492d-4ae0-86d4-529545e72b9e",
+              "PK": false,
+              "name": "lng",
+              "type": "double",
+              "isNN": true
+            }
+          ]
+        },
+        {
+          "id": "0e658fff-571a-4f87-aeb1-c827a74f95fc",
+          "PK": false,
+          "name": "notes",
+          "type": "string"
+        },
+        {
+          "id": "c3e5e14d-221a-4969-9d66-382d81ec3781",
+          "PK": false,
+          "name": "toolsNeeded",
+          "type": "string",
+          "isArray": true
+        },
+        {
+          "id": "a4d93b21-d944-4b0e-b1cb-3524abf3795c",
+          "PK": false,
+          "name": "priceBreakdown",
+          "type": "object",
+          "isNN": true,
+          "children": [
+            {
+              "id": "448b1d8f-6c2e-48a7-9d8c-4885f69ad262",
+              "PK": false,
+              "name": "subtotal",
+              "type": "double",
+              "isNN": true
+            },
+            {
+              "id": "b34405eb-961c-4fad-8975-07210d5b8e4e",
+              "PK": false,
+              "name": "tax",
+              "type": "double",
+              "isNN": true
+            },
+            {
+              "id": "0bb3c91c-bb2d-4e6e-8a39-23160b51f62d",
+              "PK": false,
+              "name": "discount",
+              "type": "double",
+              "isNN": true
+            },
+            {
+              "id": "bb39d78d-e1d9-4856-9348-d83fa38da987",
+              "PK": false,
+              "name": "total",
+              "type": "double",
+              "isNN": true
+            },
+            {
+              "id": "7d4f8129-bed7-445d-839d-799b5490155a",
+              "PK": false,
+              "name": "currency",
+              "type": "string",
+              "isNN": true
+            }
+          ]
+        },
+        {
+          "id": "84320240-504c-4ddf-98b9-6d2b113d1b63",
+          "PK": false,
+          "name": "paymentMethod",
+          "type": "string"
+        },
+        {
+          "id": "d2abea60-97d4-4d36-ae30-7100220b9483",
+          "PK": false,
+          "name": "otp",
+          "type": "object",
+          "children": [
+            {
+              "id": "1710ae83-0503-49f9-92dc-2d3183aeeb61",
+              "PK": false,
+              "name": "start",
+              "type": "string"
+            },
+            {
+              "id": "3331e6f4-b753-48cc-9c34-e555afc0dc24",
+              "PK": false,
+              "name": "restart",
+              "type": "string"
+            },
+            {
+              "id": "5cfb0248-ecdc-434a-8bcd-a1f3749e4a04",
+              "PK": false,
+              "name": "end",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "id": "a2c57845-742e-4bbc-b05b-fa0c487085a4",
+          "PK": false,
+          "name": "photos",
+          "type": "object",
+          "children": [
+            {
+              "id": "89680eb0-0cfe-4cd1-af42-d316c1da12fa",
+              "PK": false,
+              "name": "before",
+              "type": "string"
+            },
+            {
+              "id": "d6c9b2f0-f893-46f6-b92a-6801797cf59f",
+              "PK": false,
+              "name": "after",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "id": "8111650c-30f0-4b15-80b4-f1663209de96",
+          "PK": false,
+          "name": "cancellation",
+          "type": "object",
+          "children": [
+            {
+              "id": "4cd20623-9a7f-4834-b299-d3ecbe9437f5",
+              "PK": false,
+              "name": "reason",
+              "type": "string"
+            },
+            {
+              "id": "e82f649b-d6a7-442f-9a76-f0063a8ba709",
+              "PK": false,
+              "name": "fee",
+              "type": "double"
+            },
+            {
+              "id": "36eb8d38-f056-4324-b4a6-6228292546ef",
+              "PK": false,
+              "name": "cancelledAt",
+              "type": "date"
+            },
+            {
+              "id": "1b6ecc48-e32e-41bc-aff2-22571387650d",
+              "PK": false,
+              "name": "cancelledByRole",
+              "type": "enum"
+            }
+          ]
+        },
+        {
+          "id": "fa01a992-78db-4e3c-a0b8-23744c35623a",
+          "PK": false,
+          "name": "tipAmount",
+          "type": "double"
+        },
+        {
+          "id": "06769908-1a0f-4c28-bd92-86a6ca4f8b30",
+          "PK": false,
+          "name": "extraHours",
+          "type": "double"
+        }
+      ],
+      "x": 920,
+      "y": 90,
+      "width": 340
+    },
+    {
+      "id": "a05d512b-1fef-466b-b770-9c84c6f2aa64",
+      "tableName": "BookingStatusHistory",
+      "fields": [
+        {
+          "id": "8413dc03-0aee-49c8-b7f7-b2068b4416a9",
+          "PK": true,
+          "name": "_id",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "4bd65836-7705-4637-a005-4bcf3dfcc17f",
+          "PK": false,
+          "name": "bookingId",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "3c79bd4d-5219-4070-9bf9-8945d8f4c35d",
+          "PK": false,
+          "name": "fromStatus",
+          "type": "enum"
+        },
+        {
+          "id": "45ae830c-5c36-4218-b3a7-194dd2464254",
+          "PK": false,
+          "name": "toStatus",
+          "type": "enum",
+          "isNN": true
+        },
+        {
+          "id": "14e8992e-b9c8-47ed-8985-efca7f758e62",
+          "PK": false,
+          "name": "actorRole",
+          "type": "enum",
+          "isNN": true
+        },
+        {
+          "id": "7c36c433-18e1-4992-9703-b5c3e2018b4f",
+          "PK": false,
+          "name": "actorId",
+          "type": "objectId"
+        },
+        {
+          "id": "a5fb46d4-80ac-423e-bd7f-29b98c23b415",
+          "PK": false,
+          "name": "changedAt",
+          "type": "date",
+          "isNN": true
+        }
+      ],
+      "x": 920,
+      "y": 670,
+      "width": 340
+    },
+    {
+      "id": "aa825de5-c50c-4517-9551-392b76879f16",
+      "tableName": "Review",
+      "fields": [
+        {
+          "id": "1cadbb07-ce9e-45f6-a99e-3bbda6df2141",
+          "PK": true,
+          "name": "_id",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "40ffaa0b-9570-440a-88c4-4683e9116ac7",
+          "PK": false,
+          "name": "bookingId",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "8e1caad3-da6d-4359-b3e8-d477aaf50ada",
+          "PK": false,
+          "name": "raterRole",
+          "type": "enum",
+          "isNN": true
+        },
+        {
+          "id": "32f51838-11a2-4cec-916e-1b7a66ced658",
+          "PK": false,
+          "name": "rateeId",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "b4a82554-e889-4389-989e-af95dcf1c146",
+          "PK": false,
+          "name": "stars",
+          "type": "int",
+          "isNN": true
+        },
+        {
+          "id": "0dd64ea1-b8ab-45f5-ac92-78e78b2b9352",
+          "PK": false,
+          "name": "tags",
+          "type": "string",
+          "isArray": true
+        },
+        {
+          "id": "c54b29c3-bb7a-47d0-b570-06152fb74efc",
+          "PK": false,
+          "name": "text",
+          "type": "string"
+        }
+      ],
+      "x": 920,
+      "y": 964,
+      "width": 340
+    },
+    {
+      "id": "78c0de63-b176-477d-bdcc-396f92bd85c5",
+      "tableName": "Payment",
+      "fields": [
+        {
+          "id": "3f039c38-6b3d-4726-b34d-1fd074920e2c",
+          "PK": true,
+          "name": "_id",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "27875b5d-c6f9-4e3e-be8e-c7256e9bcc29",
+          "PK": false,
+          "name": "bookingId",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "3a96bdf6-b152-4075-a5bd-8bad293827ba",
+          "PK": false,
+          "name": "customerId",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "24b8233d-d9d0-41f5-89c6-83a90df345fc",
+          "PK": false,
+          "name": "amount",
+          "type": "double",
+          "isNN": true
+        },
+        {
+          "id": "fb7c9550-2140-4936-a92f-661b388bc948",
+          "PK": false,
+          "name": "currency",
+          "type": "string",
+          "isNN": true
+        },
+        {
+          "id": "f70ec5d4-eeea-4ecc-9bb6-6ac5b5a0a9c3",
+          "PK": false,
+          "name": "method",
+          "type": "enum",
+          "isNN": true
+        },
+        {
+          "id": "95e8b5a3-7616-42d1-b956-463d971e66bc",
+          "PK": false,
+          "name": "status",
+          "type": "enum",
+          "isNN": true
+        },
+        {
+          "id": "53e0165d-29ca-47cd-bfa0-623d89118c22",
+          "PK": false,
+          "name": "txnId",
+          "type": "string"
+        }
+      ],
+      "x": 1360,
+      "y": 90,
+      "width": 340
+    },
+    {
+      "id": "57d36f2f-5f36-4375-b5c0-e0a47bda19c0",
+      "tableName": "Wallet",
+      "fields": [
+        {
+          "id": "3d143107-d127-4bd9-b771-63f752620542",
+          "PK": true,
+          "name": "_id",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "60c89b73-4e07-43c8-8932-d43c725f081a",
+          "PK": false,
+          "name": "ownerId",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "0053b416-a1bc-488f-ac13-843e72e46c1c",
+          "PK": false,
+          "name": "ownerRole",
+          "type": "enum",
+          "isNN": true
+        },
+        {
+          "id": "28abb321-1b0c-4a13-9aac-07f04a91cc3f",
+          "PK": false,
+          "name": "balance",
+          "type": "double",
+          "isNN": true
+        },
+        {
+          "id": "5e27fcc8-ffd8-422a-81be-30b9cbe06200",
+          "PK": false,
+          "name": "currency",
+          "type": "string",
+          "isNN": true
+        },
+        {
+          "id": "f26418d7-47ad-4ae2-9c65-29a67f2a543e",
+          "PK": false,
+          "name": "bankAccount",
+          "type": "object",
+          "children": [
+            {
+              "id": "0332a1d4-e226-463d-8540-e0f05adc00f9",
+              "PK": false,
+              "name": "accountHolder",
+              "type": "string"
+            },
+            {
+              "id": "6c629c8b-c36f-40bc-992a-a3001f3f36c6",
+              "PK": false,
+              "name": "iban",
+              "type": "string"
+            },
+            {
+              "id": "ba67245e-2fcc-43de-933c-87af60ee71ab",
+              "PK": false,
+              "name": "bankName",
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "x": 1360,
+      "y": 410,
+      "width": 340
+    },
+    {
+      "id": "c0131d01-8dae-4158-a903-2f5039970336",
+      "tableName": "PayoutRequest",
+      "fields": [
+        {
+          "id": "bc8dde4d-a32b-4cb0-8701-03f44fbfe5e5",
+          "PK": true,
+          "name": "_id",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "fce03f38-dce2-4ba2-b92b-7b4fc0618218",
+          "PK": false,
+          "name": "partnerId",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "9c4c79b9-c1aa-437a-997f-d21493ef8cb5",
+          "PK": false,
+          "name": "amount",
+          "type": "double",
+          "isNN": true
+        },
+        {
+          "id": "80eb9079-5a0d-4d0b-8221-b12fc888d9de",
+          "PK": false,
+          "name": "periodStart",
+          "type": "date",
+          "isNN": true
+        },
+        {
+          "id": "b55497ec-f273-4513-aed9-3c4bf2a0c4dd",
+          "PK": false,
+          "name": "periodEnd",
+          "type": "date",
+          "isNN": true
+        },
+        {
+          "id": "806efc17-e27d-467a-b20e-c74acb95ff75",
+          "PK": false,
+          "name": "status",
+          "type": "enum",
+          "isNN": true
+        },
+        {
+          "id": "eb26b31e-047a-4432-beb9-87e96a821b3e",
+          "PK": false,
+          "name": "txnId",
+          "type": "string"
+        },
+        {
+          "id": "b6b8392a-4e57-46b1-a3ca-a88b8316e699",
+          "PK": false,
+          "name": "heldForDispute",
+          "type": "bool"
+        }
+      ],
+      "x": 1360,
+      "y": 678,
+      "width": 340
+    },
+    {
+      "id": "3b11680e-315a-468c-af15-e78eddb68146",
+      "tableName": "Refund",
+      "fields": [
+        {
+          "id": "a9b0d29b-e053-4918-9905-8b01fd5e7d71",
+          "PK": true,
+          "name": "_id",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "d7238d70-8ddf-4029-a7a5-a2690c560d8d",
+          "PK": false,
+          "name": "bookingId",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "0177ad29-7cec-476c-8765-10823f647340",
+          "PK": false,
+          "name": "customerId",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "caa4c08a-e50f-4c63-bdc0-af507f0c708b",
+          "PK": false,
+          "name": "amount",
+          "type": "double",
+          "isNN": true
+        },
+        {
+          "id": "1f122e1b-2f33-4b73-81af-f9792b3761ff",
+          "PK": false,
+          "name": "status",
+          "type": "enum",
+          "isNN": true
+        },
+        {
+          "id": "945439df-8140-419c-99b8-6ad4491e5b8d",
+          "PK": false,
+          "name": "disputeId",
+          "type": "objectId"
+        },
+        {
+          "id": "d878bb15-c976-463b-92c1-497a918fa55d",
+          "PK": false,
+          "name": "txnId",
+          "type": "string"
+        },
+        {
+          "id": "1761c7b8-59d0-481d-8d9b-98d6746b2c7e",
+          "PK": false,
+          "name": "penaltyOnPartnerAmount",
+          "type": "double"
+        }
+      ],
+      "x": 1360,
+      "y": 998,
+      "width": 340
+    },
+    {
+      "id": "ccd325b7-ef15-4716-a5b3-c0120e24b4e2",
+      "tableName": "CommissionLedgerEntry",
+      "fields": [
+        {
+          "id": "c87f4913-490e-4f0a-bf1f-2cc65bdc34e1",
+          "PK": true,
+          "name": "_id",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "12c28195-7163-4d25-8467-66de77adafe2",
+          "PK": false,
+          "name": "bookingId",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "0fa95688-6797-425f-b988-76a556ecdd38",
+          "PK": false,
+          "name": "partnerId",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "391067b4-3b23-4c55-9c10-3467627ec2fc",
+          "PK": false,
+          "name": "jobAmount",
+          "type": "double",
+          "isNN": true
+        },
+        {
+          "id": "99043322-ab4f-40c1-b3b0-6e8dfead5919",
+          "PK": false,
+          "name": "commissionRatePct",
+          "type": "double",
+          "isNN": true
+        },
+        {
+          "id": "68ec484b-782f-42df-ae2f-cbb0394cf245",
+          "PK": false,
+          "name": "commissionAmount",
+          "type": "double",
+          "isNN": true
+        }
+      ],
+      "x": 1360,
+      "y": 1318,
+      "width": 340
+    },
+    {
+      "id": "4d6dd6d2-5929-41a2-8276-8b0d27384561",
+      "tableName": "Conversation",
+      "fields": [
+        {
+          "id": "83b9dfc8-71f4-4614-88e2-b2e40d31ea00",
+          "PK": true,
+          "name": "_id",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "6bdfb6d3-644d-42a0-966b-dc9b0478723d",
+          "PK": false,
+          "name": "bookingId",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "34b79d4d-bdfe-4938-8cbe-112ddaa69c37",
+          "PK": false,
+          "name": "customerId",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "91731c97-6bf8-4f2c-90d1-3717d01784c1",
+          "PK": false,
+          "name": "staffId",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "8e4db3ce-f50f-4d9d-9f82-435b3f069d90",
+          "PK": false,
+          "name": "lastMessageAt",
+          "type": "date"
+        }
+      ],
+      "x": 1800,
+      "y": 90,
+      "width": 340
+    },
+    {
+      "id": "c9870a9a-0723-4d75-af79-d28316329771",
+      "tableName": "Message",
+      "fields": [
+        {
+          "id": "c3cddf98-2966-407d-915d-a1d1485e9e6b",
+          "PK": true,
+          "name": "_id",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "43406739-5383-41be-99ee-176e54ff8a87",
+          "PK": false,
+          "name": "conversationId",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "37d21832-4b8f-4401-a5ac-ae5d4d6940e7",
+          "PK": false,
+          "name": "senderRole",
+          "type": "enum",
+          "isNN": true
+        },
+        {
+          "id": "3f1d11eb-a035-4dab-bf85-c4316d124fa5",
+          "PK": false,
+          "name": "templateId",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "1264c3dc-949c-477b-858c-a2e2ce8ab0d3",
+          "PK": false,
+          "name": "sentAt",
+          "type": "date",
+          "isNN": true
+        }
+      ],
+      "x": 1800,
+      "y": 332,
+      "width": 340
+    },
+    {
+      "id": "7b6bb56f-eabd-47c6-ac27-019be9c1f112",
+      "tableName": "PredefinedMessageTemplate",
+      "fields": [
+        {
+          "id": "53f007ef-6c5d-4c08-ae75-301db8dc6a7c",
+          "PK": true,
+          "name": "_id",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "946bad9f-ce41-4368-b8b2-a32a0a87c0c4",
+          "PK": false,
+          "name": "text",
+          "type": "object",
+          "isNN": true,
+          "children": [
+            {
+              "id": "8dcdc913-0d57-49a1-9543-44841652c215",
+              "PK": false,
+              "name": "en",
+              "type": "string",
+              "isNN": true
+            },
+            {
+              "id": "c5372665-2ef7-4337-a104-e40a5f19e7eb",
+              "PK": false,
+              "name": "ar",
+              "type": "string",
+              "isNN": true
+            }
+          ]
+        },
+        {
+          "id": "3ac3eb4d-4ada-4f8e-a8b7-5fcea10d7411",
+          "PK": false,
+          "name": "roleScope",
+          "type": "enum",
+          "isNN": true
+        }
+      ],
+      "x": 1800,
+      "y": 574,
+      "width": 340
+    },
+    {
+      "id": "78b845b2-c9d2-4e1d-a01a-be2bf40ba66c",
+      "tableName": "SupportTicket",
+      "fields": [
+        {
+          "id": "468d759a-ec00-46b8-b98b-0c9f2aa0f23a",
+          "PK": true,
+          "name": "_id",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "55dc7d2e-bd33-46e3-9e8f-2cdca1e4afd1",
+          "PK": false,
+          "name": "raisedByRole",
+          "type": "enum",
+          "isNN": true
+        },
+        {
+          "id": "b79fa5ad-1fab-4aa0-a95d-f7913df303d3",
+          "PK": false,
+          "name": "userId",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "debf279f-bb86-403b-a90d-0fcd5d0e9127",
+          "PK": false,
+          "name": "category",
+          "type": "enum",
+          "isNN": true
+        },
+        {
+          "id": "eadb60c8-680d-4277-bd0d-1619be612a25",
+          "PK": false,
+          "name": "details",
+          "type": "string",
+          "isNN": true
+        },
+        {
+          "id": "d46f3b4f-9189-44d8-bbd8-69c7aa877f34",
+          "PK": false,
+          "name": "attachments",
+          "type": "string",
+          "isArray": true
+        },
+        {
+          "id": "c4c95821-3a0b-4b00-9b8a-107aabd38de3",
+          "PK": false,
+          "name": "status",
+          "type": "enum",
+          "isNN": true
+        },
+        {
+          "id": "fa4ee2a9-0051-4c2d-83fc-dbc42b4f9d1c",
+          "PK": false,
+          "name": "resolutionNote",
+          "type": "string"
+        }
+      ],
+      "x": 2240,
+      "y": 90,
+      "width": 340
+    },
+    {
+      "id": "0f28acc7-47a7-4f72-b2f3-06ad87566149",
+      "tableName": "Dispute",
+      "fields": [
+        {
+          "id": "0084d584-0f7e-4638-b2c3-45b56341f7f3",
+          "PK": true,
+          "name": "_id",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "80ea0148-7984-430d-a277-2bf57acfc186",
+          "PK": false,
+          "name": "bookingId",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "b2bb86f6-a8de-4527-bce0-4552da013646",
+          "PK": false,
+          "name": "raisedByRole",
+          "type": "enum",
+          "isNN": true
+        },
+        {
+          "id": "363f4978-2ebc-4876-91f3-61e924ea481c",
+          "PK": false,
+          "name": "raisedById",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "8a01a893-b51e-4ad0-9b7c-d9bdf212d533",
+          "PK": false,
+          "name": "category",
+          "type": "enum",
+          "isNN": true
+        },
+        {
+          "id": "57284645-4ef5-40af-92ab-55109f3f2c54",
+          "PK": false,
+          "name": "evidence",
+          "type": "object",
+          "isArray": true,
+          "children": [
+            {
+              "id": "a5d9f550-b60b-4b42-bcff-fe225da7759b",
+              "PK": false,
+              "name": "submittedByRole",
+              "type": "enum",
+              "isNN": true
+            },
+            {
+              "id": "439fde2d-cd8e-446c-8124-b44b5f4ae9f0",
+              "PK": false,
+              "name": "url",
+              "type": "string",
+              "isNN": true
+            },
+            {
+              "id": "d62f58b7-725b-45cb-8944-d2f785a12dd9",
+              "PK": false,
+              "name": "note",
+              "type": "string"
+            },
+            {
+              "id": "1cb419a2-0262-4c6b-bb32-c5fbbcb03d45",
+              "PK": false,
+              "name": "submittedAt",
+              "type": "date",
+              "isNN": true
+            }
+          ]
+        },
+        {
+          "id": "7d696a83-8f7b-4b7c-afc0-7a5cf14f21d6",
+          "PK": false,
+          "name": "priority",
+          "type": "enum",
+          "isNN": true
+        },
+        {
+          "id": "57d584c2-0145-4784-b27f-34e43860389a",
+          "PK": false,
+          "name": "slaDeadline",
+          "type": "date"
+        },
+        {
+          "id": "2ad80a37-ada3-4f1a-8a28-e7a830ef8450",
+          "PK": false,
+          "name": "faultDecision",
+          "type": "enum"
+        },
+        {
+          "id": "503e4e66-6a2e-449e-bdc9-97aeb433ef02",
+          "PK": false,
+          "name": "outcome",
+          "type": "enum"
+        },
+        {
+          "id": "faf15ff5-e1d6-4a08-85d7-67c9aeed6992",
+          "PK": false,
+          "name": "status",
+          "type": "enum",
+          "isNN": true
+        }
+      ],
+      "x": 2240,
+      "y": 410,
+      "width": 340
+    },
+    {
+      "id": "522436e0-8a23-4922-9bd5-4862876638cb",
+      "tableName": "Notification",
+      "fields": [
+        {
+          "id": "ba310176-9700-4d4d-809f-a79fcf306b9b",
+          "PK": true,
+          "name": "_id",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "bad911f4-bcc8-48b3-a07c-0ef98a06d036",
+          "PK": false,
+          "name": "userId",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "26f94add-dab5-445e-942f-f0e6ac693a64",
+          "PK": false,
+          "name": "role",
+          "type": "enum",
+          "isNN": true
+        },
+        {
+          "id": "25a060fb-c5d4-46e6-8a43-e1e878472338",
+          "PK": false,
+          "name": "title",
+          "type": "string",
+          "isNN": true
+        },
+        {
+          "id": "7ae999c0-1bed-4020-b8a1-5b6b8d5c507d",
+          "PK": false,
+          "name": "body",
+          "type": "string",
+          "isNN": true
+        },
+        {
+          "id": "82110044-43b6-43d8-b40c-d9b4f420f4a2",
+          "PK": false,
+          "name": "type",
+          "type": "string",
+          "isNN": true
+        },
+        {
+          "id": "8abdea68-0877-441e-b15b-7867afaa5623",
+          "PK": false,
+          "name": "readAt",
+          "type": "date"
+        }
+      ],
+      "x": 2680,
+      "y": 90,
+      "width": 340
+    },
+    {
+      "id": "2be2be2a-a862-4025-bc1c-f6bb7a4d8399",
+      "tableName": "DeviceToken",
+      "fields": [
+        {
+          "id": "189c0bd1-5621-44b7-b7ef-afb2b2b576ec",
+          "PK": true,
+          "name": "_id",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "3e092583-eeca-46a5-8803-a4b8442cb16c",
+          "PK": false,
+          "name": "userId",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "ce7a12a2-72f8-495c-a316-4995d39ce7cf",
+          "PK": false,
+          "name": "platform",
+          "type": "enum",
+          "isNN": true
+        },
+        {
+          "id": "7310591b-4bb1-4074-86bc-3d8a97553dcc",
+          "PK": false,
+          "name": "token",
+          "type": "string",
+          "isNN": true
+        }
+      ],
+      "x": 2680,
+      "y": 384,
+      "width": 340
+    },
+    {
+      "id": "793c1ff4-d7ec-4ff1-9115-745c7b8c532e",
+      "tableName": "NotificationTemplate",
+      "fields": [
+        {
+          "id": "ef78e073-0bbd-4d82-a284-ede13a4a4441",
+          "PK": true,
+          "name": "_id",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "b41d4bff-eb22-42b8-8ac2-1fdf7a30e77a",
+          "PK": false,
+          "name": "key",
+          "type": "string",
+          "isNN": true
+        },
+        {
+          "id": "24ac4ad5-6658-426c-9185-2d37047ba050",
+          "PK": false,
+          "name": "text",
+          "type": "object",
+          "isNN": true,
+          "children": [
+            {
+              "id": "c04f86ca-f5fc-42bd-8b01-11cd92365263",
+              "PK": false,
+              "name": "en",
+              "type": "string",
+              "isNN": true
+            },
+            {
+              "id": "a97fcc8f-3097-47fe-a470-74b410594dd2",
+              "PK": false,
+              "name": "ar",
+              "type": "string",
+              "isNN": true
+            }
+          ]
+        },
+        {
+          "id": "c584f61a-0177-43aa-8eab-5427a43180d0",
+          "PK": false,
+          "name": "channel",
+          "type": "enum",
+          "isNN": true
+        }
+      ],
+      "x": 2680,
+      "y": 600,
+      "width": 340
+    },
+    {
+      "id": "81a12355-c305-4d4c-a5c3-608647ba575f",
+      "tableName": "Banner",
+      "fields": [
+        {
+          "id": "e843ccfe-1796-4881-89a7-eb59c15a87c4",
+          "PK": true,
+          "name": "_id",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "2036a7df-908b-4eb2-be33-b3b5e5cbac44",
+          "PK": false,
+          "name": "categoryId",
+          "type": "objectId"
+        },
+        {
+          "id": "3e273348-0294-4a90-90ec-216b6ef6216a",
+          "PK": false,
+          "name": "imageUrl",
+          "type": "string",
+          "isNN": true
+        },
+        {
+          "id": "8dfc1199-40e2-4407-b5ff-50f3c2a3a8aa",
+          "PK": false,
+          "name": "status",
+          "type": "enum",
+          "isNN": true
+        }
+      ],
+      "x": 3120,
+      "y": 90,
+      "width": 340
+    },
+    {
+      "id": "aa08312d-7235-469d-9747-f650f8876dc2",
+      "tableName": "Report",
+      "fields": [
+        {
+          "id": "83934829-0f23-42dc-b382-e29b368af91d",
+          "PK": true,
+          "name": "_id",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "fd672163-4470-4936-8b24-7955d5fabf59",
+          "PK": false,
+          "name": "type",
+          "type": "string",
+          "isNN": true
+        },
+        {
+          "id": "a6ca8d31-8bc5-4be1-91de-1def9d6822c0",
+          "PK": false,
+          "name": "filters",
+          "type": "object"
+        },
+        {
+          "id": "4ae09e42-a806-4829-be7d-19f89832a511",
+          "PK": false,
+          "name": "generatedFileUrl",
+          "type": "string"
+        },
+        {
+          "id": "bcaeb388-5e8a-4720-a055-ac4cbca561af",
+          "PK": false,
+          "name": "requestedBy",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "17ca268e-412e-40a4-826b-e5904f103b40",
+          "PK": false,
+          "name": "status",
+          "type": "enum",
+          "isNN": true
+        }
+      ],
+      "x": 3120,
+      "y": 306,
+      "width": 340
+    },
+    {
+      "id": "5e285c1e-614d-4cdd-9854-b6f4e49fed27",
+      "tableName": "AuditLog",
+      "fields": [
+        {
+          "id": "530ea42c-1094-43a8-a441-f314de733c1d",
+          "PK": true,
+          "name": "_id",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "cdca43cf-e01b-49ea-b6b3-583ab287a8d8",
+          "PK": false,
+          "name": "actorId",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "564915fa-2336-4e05-a0c8-22940d043842",
+          "PK": false,
+          "name": "action",
+          "type": "string",
+          "isNN": true
+        },
+        {
+          "id": "03647817-8665-4923-8a1c-f2a6c837dd42",
+          "PK": false,
+          "name": "targetType",
+          "type": "string",
+          "isNN": true
+        },
+        {
+          "id": "79cac463-1f6c-435e-84c7-b8787d2366c2",
+          "PK": false,
+          "name": "targetId",
+          "type": "objectId",
+          "isNN": true
+        },
+        {
+          "id": "672cd859-0e4a-4730-8f89-bc131428808b",
+          "PK": false,
+          "name": "timestamp",
+          "type": "date",
+          "isNN": true
+        }
+      ],
+      "x": 3120,
+      "y": 574,
+      "width": 340
+    }
+  ],
+  "relations": [
+    {
+      "id": "94c72e0d-a37f-4508-89d8-01595a8a4a59",
+      "fromTableId": "34f8671c-4324-4296-bf62-f889e6eedb15",
+      "toTableId": "7b38fcb8-ede3-4dba-8656-5941fa17feb5",
+      "fromFieldId": "896ae410-f3b1-4464-bd3d-3af238974c5f",
+      "toFieldId": "f197c2e7-8ca9-4764-b8e9-e4ce106eeb07",
+      "type": "1:1"
+    },
+    {
+      "id": "344cb3e5-4c7d-43e7-ba66-2f285adc49dc",
+      "fromTableId": "34f8671c-4324-4296-bf62-f889e6eedb15",
+      "toTableId": "9d9d3a60-b5e2-4697-b1c9-9b8ea233744c",
+      "fromFieldId": "896ae410-f3b1-4464-bd3d-3af238974c5f",
+      "toFieldId": "4f9ef13a-f9aa-4720-97e6-35c4313bfa5c",
+      "type": "1:1"
+    },
+    {
+      "id": "cac71d82-be1c-4f2a-a0dd-dbd5c1289023",
+      "fromTableId": "34f8671c-4324-4296-bf62-f889e6eedb15",
+      "toTableId": "8d60f558-d71d-4d39-a8f2-01fe44578872",
+      "fromFieldId": "896ae410-f3b1-4464-bd3d-3af238974c5f",
+      "toFieldId": "340105dd-4587-4cba-babc-7d9f44726e8f",
+      "type": "1:1"
+    },
+    {
+      "id": "b73d9a7b-b627-4c38-8881-dcfb095361fa",
+      "fromTableId": "34f8671c-4324-4296-bf62-f889e6eedb15",
+      "toTableId": "8d60f558-d71d-4d39-a8f2-01fe44578872",
+      "fromFieldId": "896ae410-f3b1-4464-bd3d-3af238974c5f",
+      "toFieldId": "445725a4-41f8-40d1-941d-f7acb92d8cfb",
+      "type": "1:M"
+    },
+    {
+      "id": "6d1ed492-9d35-4e98-9bd2-45988d6b9196",
+      "fromTableId": "34f8671c-4324-4296-bf62-f889e6eedb15",
+      "toTableId": "b1372624-3916-4ae0-a9ad-cc0489be076e",
+      "fromFieldId": "896ae410-f3b1-4464-bd3d-3af238974c5f",
+      "toFieldId": "93c101fa-1686-4a9b-958d-44ff9dc5d998",
+      "type": "1:1"
+    },
+    {
+      "id": "f80d1c46-af76-48e1-8de7-194bc3d6d187",
+      "fromTableId": "d9e3865c-7b68-49ec-8256-c67b5b5001a1",
+      "toTableId": "b1372624-3916-4ae0-a9ad-cc0489be076e",
+      "fromFieldId": "790b088e-21d9-4959-99d7-ba58318b2c38",
+      "toFieldId": "ed0024a3-6c05-4215-b205-545524205046",
+      "type": "1:M"
+    },
+    {
+      "id": "2c9d57fa-402b-423f-b00e-aee8fbc3f0f1",
+      "fromTableId": "34f8671c-4324-4296-bf62-f889e6eedb15",
+      "toTableId": "3854a96e-7c70-45c9-8b8e-caa58f034aa2",
+      "fromFieldId": "896ae410-f3b1-4464-bd3d-3af238974c5f",
+      "toFieldId": "77946264-7dd5-457f-b77b-e38770c11016",
+      "type": "1:M"
+    },
+    {
+      "id": "b4d7988e-e942-45c8-b8d5-538223d19e78",
+      "fromTableId": "fe7b7046-8342-4392-a4fb-6c2513aea7c9",
+      "toTableId": "249bd679-9c69-4163-9e17-5a4b263a8b2e",
+      "fromFieldId": "1b82b08b-5af2-4fd9-ae2f-58b537c94e86",
+      "toFieldId": "52a1e897-6df7-43ab-ab5c-33c08607889b",
+      "type": "1:M"
+    },
+    {
+      "id": "e0d34ece-8624-4375-ae46-97f965a59cca",
+      "fromTableId": "249bd679-9c69-4163-9e17-5a4b263a8b2e",
+      "toTableId": "12a8e8fb-67d1-4aa6-9d69-72b19e981f4f",
+      "fromFieldId": "457ee4bb-059d-4351-910f-341d9b7df0ab",
+      "toFieldId": "1e44e0ec-f200-4220-ab65-e38d27f4b6cc",
+      "type": "1:M"
+    },
+    {
+      "id": "a532464c-468b-42ee-8bba-6f125d8ae98a",
+      "fromTableId": "fe7b7046-8342-4392-a4fb-6c2513aea7c9",
+      "toTableId": "67e4c4f6-8d06-422d-8d4d-14c245ed3d72",
+      "fromFieldId": "1b82b08b-5af2-4fd9-ae2f-58b537c94e86",
+      "toFieldId": "5a65b7f2-ee9e-4887-a9b0-f4e063f124ba",
+      "type": "1:M"
+    },
+    {
+      "id": "180045d6-0a32-4bc3-94b0-df464d24038e",
+      "fromTableId": "fe7b7046-8342-4392-a4fb-6c2513aea7c9",
+      "toTableId": "cea2e91c-9b8d-4a08-98a1-895a2d9ab615",
+      "fromFieldId": "1b82b08b-5af2-4fd9-ae2f-58b537c94e86",
+      "toFieldId": "ae028bd1-c2f7-48f7-9e9e-a8e2e7e2a185",
+      "type": "1:M"
+    },
+    {
+      "id": "6de35ed8-d6d9-4037-98af-7939346e3ddb",
+      "fromTableId": "249bd679-9c69-4163-9e17-5a4b263a8b2e",
+      "toTableId": "cea2e91c-9b8d-4a08-98a1-895a2d9ab615",
+      "fromFieldId": "457ee4bb-059d-4351-910f-341d9b7df0ab",
+      "toFieldId": "6ed0fd62-4743-4c63-ac13-fb3dc80c387b",
+      "type": "1:M"
+    },
+    {
+      "id": "2b4ea247-f634-4572-9043-e4d4c3431306",
+      "fromTableId": "dd18792c-4371-4d2d-abb1-1b3f5e1f7ebb",
+      "toTableId": "a05d512b-1fef-466b-b770-9c84c6f2aa64",
+      "fromFieldId": "d2d6c4cb-70f8-4793-8afd-171306a53347",
+      "toFieldId": "4bd65836-7705-4637-a005-4bcf3dfcc17f",
+      "type": "1:M"
+    },
+    {
+      "id": "316c1871-85a7-4bca-bb5c-4ac281cd6853",
+      "fromTableId": "dd18792c-4371-4d2d-abb1-1b3f5e1f7ebb",
+      "toTableId": "aa825de5-c50c-4517-9551-392b76879f16",
+      "fromFieldId": "d2d6c4cb-70f8-4793-8afd-171306a53347",
+      "toFieldId": "40ffaa0b-9570-440a-88c4-4683e9116ac7",
+      "type": "1:M"
+    },
+    {
+      "id": "cc1445f1-1dab-4344-8f36-bb7833fb8906",
+      "fromTableId": "4d6dd6d2-5929-41a2-8276-8b0d27384561",
+      "toTableId": "c9870a9a-0723-4d75-af79-d28316329771",
+      "fromFieldId": "83b9dfc8-71f4-4614-88e2-b2e40d31ea00",
+      "toFieldId": "43406739-5383-41be-99ee-176e54ff8a87",
+      "type": "1:M"
+    },
+    {
+      "id": "5c4ab360-d776-4ef0-9a5c-7f5b37aac696",
+      "fromTableId": "7b6bb56f-eabd-47c6-ac27-019be9c1f112",
+      "toTableId": "c9870a9a-0723-4d75-af79-d28316329771",
+      "fromFieldId": "53f007ef-6c5d-4c08-ae75-301db8dc6a7c",
+      "toFieldId": "3f1d11eb-a035-4dab-bf85-c4316d124fa5",
+      "type": "1:M"
+    }
+  ],
+  "notes": [
+    {
+      "id": "9bb4b86d-0465-453d-9df6-b4eeb3c77fbc",
+      "title": "auth-service (leen_auth)",
+      "description": "Owns its own MongoDB database. Cross-service references are plain ObjectId fields (no local relation drawn).",
+      "x": 40,
+      "y": 20,
+      "width": 340,
+      "height": 56
+    },
+    {
+      "id": "da031982-74a0-4e45-bfd7-debd9228e798",
+      "title": "catalog-service (leen_catalog)",
+      "description": "Owns its own MongoDB database. Cross-service references are plain ObjectId fields (no local relation drawn).",
+      "x": 480,
+      "y": 20,
+      "width": 340,
+      "height": 56
+    },
+    {
+      "id": "6609df91-bade-493d-9f84-0ab1ec986f0c",
+      "title": "booking-service (leen_booking)",
+      "description": "Owns its own MongoDB database. Cross-service references are plain ObjectId fields (no local relation drawn).",
+      "x": 920,
+      "y": 20,
+      "width": 340,
+      "height": 56
+    },
+    {
+      "id": "5066e0c3-0089-4bee-bfcb-3690f9d118b8",
+      "title": "payment-service (leen_payment)",
+      "description": "Owns its own MongoDB database. Cross-service references are plain ObjectId fields (no local relation drawn).",
+      "x": 1360,
+      "y": 20,
+      "width": 340,
+      "height": 56
+    },
+    {
+      "id": "c3fb8661-339b-4989-bb0c-7d7ee4d4e33a",
+      "title": "chat-service (leen_chat)",
+      "description": "Owns its own MongoDB database. Cross-service references are plain ObjectId fields (no local relation drawn).",
+      "x": 1800,
+      "y": 20,
+      "width": 340,
+      "height": 56
+    },
+    {
+      "id": "bbb95c06-db74-404c-9f6d-a9c20310d34b",
+      "title": "support-dispute-service (leen_support)",
+      "description": "Owns its own MongoDB database. Cross-service references are plain ObjectId fields (no local relation drawn).",
+      "x": 2240,
+      "y": 20,
+      "width": 340,
+      "height": 56
+    },
+    {
+      "id": "96a4a979-807a-4951-b8e4-5addf993127a",
+      "title": "notification-service (leen_notification)",
+      "description": "Owns its own MongoDB database. Cross-service references are plain ObjectId fields (no local relation drawn).",
+      "x": 2680,
+      "y": 20,
+      "width": 340,
+      "height": 56
+    },
+    {
+      "id": "f0222583-d127-423b-ae55-f8492573658e",
+      "title": "admin-service (leen_admin)",
+      "description": "Owns its own MongoDB database. Cross-service references are plain ObjectId fields (no local relation drawn).",
+      "x": 3120,
+      "y": 20,
+      "width": 340,
+      "height": 56
+    }
+  ],
+  "selectedElementId": null
+}
