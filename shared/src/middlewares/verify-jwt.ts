@@ -18,9 +18,9 @@ declare global {
 }
 
 /**
- * Verifies the bearer JWT issued by auth-service. Milestone 1 only wires the
- * shape/contract; secret rotation, revocation and refresh-token flows land
- * in a later milestone.
+ * Verifies the bearer JWT issued by auth-service. Only the shape/contract is
+ * wired here; secret rotation, revocation and refresh-token flows are not
+ * implemented yet.
  */
 export function verifyJwt(secret: string) {
   return (req: Request, _res: Response, next: NextFunction): void => {

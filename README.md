@@ -20,8 +20,10 @@ services/
   admin-service/        # CMS banners, reports, audit log
 docs/
   architecture.md
-  api-contracts/*.yaml  # OpenAPI spec per service (mirrors each service's own openapi.yaml)
+  db-diagram/           # mongomodeler.com diagram + generator script
 ```
+
+Each service also has its own `openapi.yaml` (single source of truth) — the gateway reads all of them directly at startup to build the combined Swagger UI at `/docs`.
 
 ## Getting Started
 

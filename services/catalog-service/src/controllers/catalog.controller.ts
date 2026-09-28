@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { ApiError } from '@leen/shared';
 
-// Milestone 1: contract-only stubs for the full catalog CRUD + publish pipeline.
+// Contract-only stubs for the full catalog CRUD + publish pipeline.
 
 export async function listCities(_req: Request, _res: Response): Promise<void> {
   throw new ApiError(501, 'NOT_IMPLEMENTED', 'listCities not implemented yet');

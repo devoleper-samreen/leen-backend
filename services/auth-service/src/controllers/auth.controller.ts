@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
 import { ApiError } from '@leen/shared';
 
-// Milestone 1: contract-only stubs. Real signup/login/OTP/JWT-issuing logic
-// lands in the milestone that implements auth-service business logic.
+// Contract-only stubs. Real signup/login/OTP/JWT-issuing logic is not
+// implemented yet.
 
 export async function signup(_req: Request, _res: Response): Promise<void> {
   throw new ApiError(501, 'NOT_IMPLEMENTED', 'signup not implemented yet');

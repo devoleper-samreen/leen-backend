@@ -7,8 +7,8 @@ interface ServiceRoute {
 }
 
 /**
- * Maps public gateway paths to internal services. Milestone 1: plain
- * REST proxying, one prefix per service. No retries/circuit-breaking yet.
+ * Maps public gateway paths to internal services via plain REST proxying,
+ * one prefix per service. No retries or circuit-breaking yet.
  */
 export function mountServiceProxies(app: Express): void {
   const routes: ServiceRoute[] = [
