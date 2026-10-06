@@ -33,11 +33,21 @@ interface ICancellation {
   cancelledByRole?: 'customer' | 'partner' | 'admin';
 }
 
+interface IAppliedRules {
+  commissionRatePct: number;
+  taxRatePct: number;
+  cancellationPolicyId?: Types.ObjectId;
+  cancellationPolicyVersion?: number;
+}
+
 export interface IBooking extends Document {
   customerId: Types.ObjectId;
   partnerId?: Types.ObjectId;
   staffId?: Types.ObjectId;
   serviceId: Types.ObjectId;
+  // Direct city reference (not derived from address.lat/lng) so Admin
+  // reporting can group bookings by city without a geocoding step.
+  cityId: Types.ObjectId;
   type: BookingType;
   status: BookingStatus;
   scheduledFor?: Date;
@@ -51,6 +61,8 @@ export interface IBooking extends Document {
   cancellation?: ICancellation;
   tipAmount?: number;
   extraHours?: number;
+  appliedRules: IAppliedRules;
+  promoRedemptionId?: Types.ObjectId;
 }
 
 const addressSnapshotSchema = new Schema<IAddressSnapshot>(
@@ -89,11 +101,22 @@ const cancellationSchema = new Schema<ICancellation>(
   { _id: false },
 );
 
+const appliedRulesSchema = new Schema<IAppliedRules>(
+  {
+    commissionRatePct: { type: Number, required: true },
+    taxRatePct: { type: Number, required: true },
+    cancellationPolicyId: { type: Schema.Types.ObjectId },
+    cancellationPolicyVersion: { type: Number },
+  },
+  { _id: false },
+);
+
 const bookingSchema = new Schema<IBooking>({
   customerId: { type: Schema.Types.ObjectId, required: true, index: true },
   partnerId: { type: Schema.Types.ObjectId, index: true },
   staffId: { type: Schema.Types.ObjectId, index: true },
   serviceId: { type: Schema.Types.ObjectId, required: true },
+  cityId: { type: Schema.Types.ObjectId, required: true, index: true },
   type: { type: String, enum: Object.values(BookingType), required: true },
   status: {
     type: String,
@@ -112,6 +135,8 @@ const bookingSchema = new Schema<IBooking>({
   cancellation: { type: cancellationSchema },
   tipAmount: { type: Number },
   extraHours: { type: Number },
+  appliedRules: { type: appliedRulesSchema, required: true },
+  promoRedemptionId: { type: Schema.Types.ObjectId },
 });
 
 bookingSchema.plugin(basePlugin);

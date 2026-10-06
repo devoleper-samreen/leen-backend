@@ -1,14 +1,18 @@
-import { basePlugin } from '@leen/shared';
+import { PaymentStatus, basePlugin } from '@leen/shared';
 import { Schema, model, Document, Types } from 'mongoose';
 
+/**
+ * Represents a payment "intent" for a booking - which method/provider was
+ * actually used, and each try against it, lives on PaymentAttempt so a
+ * failed attempt can be retried without redesigning this model.
+ */
 export interface IPayment extends Document {
   bookingId: Types.ObjectId;
   customerId: Types.ObjectId;
   amount: number;
   currency: string;
-  method: 'card' | 'wallet' | 'cash';
-  status: 'pending' | 'success' | 'failed';
-  txnId?: string;
+  status: PaymentStatus;
+  idempotencyKey: string;
 }
 
 const paymentSchema = new Schema<IPayment>({
@@ -16,9 +20,8 @@ const paymentSchema = new Schema<IPayment>({
   customerId: { type: Schema.Types.ObjectId, required: true, index: true },
   amount: { type: Number, required: true },
   currency: { type: String, required: true, default: 'OMR' },
-  method: { type: String, enum: ['card', 'wallet', 'cash'], required: true },
-  status: { type: String, enum: ['pending', 'success', 'failed'], default: 'pending' },
-  txnId: { type: String },
+  status: { type: String, enum: Object.values(PaymentStatus), default: PaymentStatus.Pending },
+  idempotencyKey: { type: String, required: true, unique: true },
 });
 
 paymentSchema.plugin(basePlugin);

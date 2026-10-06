@@ -94,3 +94,105 @@ export enum RbacAccessLevel {
   ReadOnly = 'read_only',
   ReadWrite = 'read_write',
 }
+
+export enum PartnerServiceStatus {
+  Active = 'active',
+  PendingApproval = 'pending_approval',
+  Rejected = 'rejected',
+  Suspended = 'suspended',
+}
+
+export enum PartnerApprovalAction {
+  Submitted = 'submitted',
+  UnderReview = 'under_review',
+  Approved = 'approved',
+  Rejected = 'rejected',
+  Resubmitted = 'resubmitted',
+  CoverageChanged = 'coverage_changed',
+  Suspended = 'suspended',
+}
+
+export enum AvailabilityStatus {
+  Available = 'available',
+  Unavailable = 'unavailable',
+  OnBreak = 'on_break',
+}
+
+export enum JobOfferResponse {
+  Pending = 'pending',
+  Accepted = 'accepted',
+  Rejected = 'rejected',
+  TimedOut = 'timed_out',
+}
+
+export enum JobAssignmentStatus {
+  Active = 'active',
+  Reassigned = 'reassigned',
+  Unassigned = 'unassigned',
+}
+
+export enum JobEventType {
+  StatusChanged = 'status_changed',
+  OnTheWay = 'on_the_way',
+  Arrived = 'arrived',
+  StartOtpVerified = 'start_otp_verified',
+  BeforePhotoUploaded = 'before_photo_uploaded',
+  JobStarted = 'job_started',
+  Paused = 'paused',
+  Resumed = 'resumed',
+  RestartOtpVerified = 'restart_otp_verified',
+  AfterPhotoUploaded = 'after_photo_uploaded',
+  ExtraTimeAdded = 'extra_time_added',
+  RemarkAdded = 'remark_added',
+  EndOtpVerified = 'end_otp_verified',
+  JobCompleted = 'job_completed',
+  Cancelled = 'cancelled',
+}
+
+export enum PromoRedemptionStatus {
+  Applied = 'applied',
+  Reversed = 'reversed',
+  Cancelled = 'cancelled',
+}
+
+export enum WalletTransactionDirection {
+  Credit = 'credit',
+  Debit = 'debit',
+}
+
+export enum WalletTransactionType {
+  JobEarning = 'job_earning',
+  Payout = 'payout',
+  RefundDeduction = 'refund_deduction',
+  Penalty = 'penalty',
+  Adjustment = 'adjustment',
+  Tip = 'tip',
+}
+
+export enum WalletTransactionStatus {
+  Pending = 'pending',
+  Completed = 'completed',
+  Reversed = 'reversed',
+}
+
+export enum TransferAttemptStatus {
+  Pending = 'pending',
+  Success = 'success',
+  Failed = 'failed',
+}
+
+export enum PaymentStatus {
+  Pending = 'pending',
+  Success = 'success',
+  Failed = 'failed',
+  Expired = 'expired',
+}
+
+export enum DisputeEventType {
+  Message = 'message',
+  EvidenceSubmitted = 'evidence_submitted',
+  StatusChanged = 'status_changed',
+  InfoRequested = 'info_requested',
+  FaultDecided = 'fault_decided',
+  Resolved = 'resolved',
+}
