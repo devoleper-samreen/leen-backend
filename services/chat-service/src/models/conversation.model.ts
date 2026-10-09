@@ -1,4 +1,4 @@
-import { basePlugin } from '@leen/shared';
+import { ConversationStatus, basePlugin } from '@leen/shared';
 import { Schema, model, Document, Types } from 'mongoose';
 
 export interface IConversation extends Document {
@@ -6,6 +6,8 @@ export interface IConversation extends Document {
   customerId: Types.ObjectId;
   staffId: Types.ObjectId;
   lastMessageAt?: Date;
+  status: ConversationStatus;
+  closedAt?: Date;
 }
 
 const conversationSchema = new Schema<IConversation>({
@@ -13,6 +15,8 @@ const conversationSchema = new Schema<IConversation>({
   customerId: { type: Schema.Types.ObjectId, required: true, index: true },
   staffId: { type: Schema.Types.ObjectId, required: true, index: true },
   lastMessageAt: { type: Date },
+  status: { type: String, enum: Object.values(ConversationStatus), default: ConversationStatus.Active },
+  closedAt: { type: Date },
 });
 
 conversationSchema.plugin(basePlugin);

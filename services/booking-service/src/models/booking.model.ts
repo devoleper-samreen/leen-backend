@@ -63,6 +63,9 @@ export interface IBooking extends Document {
   extraHours?: number;
   appliedRules: IAppliedRules;
   promoRedemptionId?: Types.ObjectId;
+  // The JobOffer that won the broadcast race (see JobOffer's partial unique
+  // index) - lets reads get the winning partner/offer without a lookup.
+  winningOfferId?: Types.ObjectId;
 }
 
 const addressSnapshotSchema = new Schema<IAddressSnapshot>(
@@ -137,6 +140,7 @@ const bookingSchema = new Schema<IBooking>({
   extraHours: { type: Number },
   appliedRules: { type: appliedRulesSchema, required: true },
   promoRedemptionId: { type: Schema.Types.ObjectId },
+  winningOfferId: { type: Schema.Types.ObjectId },
 });
 
 bookingSchema.plugin(basePlugin);

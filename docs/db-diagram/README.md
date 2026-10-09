@@ -1,6 +1,6 @@
 # DB Diagram (mongomodeler.com)
 
-`leen-full-schema.mml` is a ready-to-load diagram for [mongomodeler.com](https://mongomodeler.com/editor.html) covering all 53 collections across all 8 services (auth, catalog, booking, payment, chat, support-dispute, notification, admin), generated directly from the Mongoose schemas in `services/*/src/models/`.
+`leen-full-schema.mml` is a ready-to-load diagram for [mongomodeler.com](https://mongomodeler.com/editor.html) covering all 56 collections across all 8 services (auth, catalog, booking, payment, chat, support-dispute, notification, admin), generated directly from the Mongoose schemas in `services/*/src/models/`.
 
 ## How to load it
 
@@ -10,9 +10,9 @@
 
 ## What's in it
 
-- All 53 tables, grouped left-to-right by service, each with a note header naming the service + its MongoDB database
+- All 56 tables, grouped left-to-right by service, each with a note header naming the service + its MongoDB database
 - Real field types (`objectId`, `string`, `enum`, `date`, `double`, `int`, `bool`, `object`) matching each Mongoose schema, including nested embedded objects (e.g. `Booking.address`, `Booking.priceBreakdown`) and arrays (`isArray: true`)
-- 37 relations, drawn **only within a service** (`1:1` / `1:M`), matching the real FK fields (e.g. `Category._id -> SubCategory.parentCategoryId`)
+- 41 relations, drawn **only within a service** (`1:1` / `1:M`), matching the real FK fields (e.g. `Category._id -> SubCategory.parentCategoryId`)
 - Cross-service references (e.g. `Booking.customerId`, `Payment.bookingId`) are kept as plain `objectId` fields with **no relation line**, since services never share a database or join across it — this matches the DB-per-service architecture in `docs/architecture.md`
 
 ## Regenerating

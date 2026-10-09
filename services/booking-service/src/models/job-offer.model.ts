@@ -33,4 +33,18 @@ const jobOfferSchema = new Schema<IJobOffer>({
 
 jobOfferSchema.plugin(basePlugin);
 
+// Database-enforced first-accept guarantee: at most one offer per booking
+// can ever be 'accepted', so a concurrent double-accept is rejected by
+// MongoDB itself rather than relying on application logic alone. Named
+// explicitly so it doesn't collide with the plain bookingId index above
+// (both would otherwise auto-name to "bookingId_1").
+jobOfferSchema.index(
+  { bookingId: 1 },
+  {
+    unique: true,
+    partialFilterExpression: { response: JobOfferResponse.Accepted },
+    name: 'unique_accepted_offer_per_booking',
+  },
+);
+
 export const JobOffer = model<IJobOffer>('JobOffer', jobOfferSchema);

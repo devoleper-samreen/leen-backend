@@ -31,6 +31,7 @@ export enum BookingStatus {
   Paused = 'paused',
   Completed = 'completed',
   Cancelled = 'cancelled',
+  NoPartnerFound = 'no_partner_found',
 }
 
 export enum PayoutStatus {
@@ -147,6 +148,7 @@ export enum JobEventType {
   EndOtpVerified = 'end_otp_verified',
   JobCompleted = 'job_completed',
   Cancelled = 'cancelled',
+  AddressModified = 'address_modified',
 }
 
 export enum PromoRedemptionStatus {
@@ -195,4 +197,27 @@ export enum DisputeEventType {
   InfoRequested = 'info_requested',
   FaultDecided = 'fault_decided',
   Resolved = 'resolved',
+}
+
+export enum SuspensionStatus {
+  Active = 'active',
+  Lifted = 'lifted',
+  Expired = 'expired',
+}
+
+export enum FraudRecordStatus {
+  Flagged = 'flagged',
+  Cleared = 'cleared',
+}
+
+export enum ConversationStatus {
+  Active = 'active',
+  Closed = 'closed',
+}
+
+export enum DataDeletionStatus {
+  Pending = 'pending',
+  Processing = 'processing',
+  Completed = 'completed',
+  Rejected = 'rejected',
 }

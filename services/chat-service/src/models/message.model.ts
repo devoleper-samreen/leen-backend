@@ -11,6 +11,7 @@ export interface IMessage extends Document {
   senderRole: 'customer' | 'staff';
   templateId: Types.ObjectId;
   sentAt: Date;
+  readAt?: Date;
 }
 
 const messageSchema = new Schema<IMessage>({
@@ -18,6 +19,7 @@ const messageSchema = new Schema<IMessage>({
   senderRole: { type: String, enum: ['customer', 'staff'], required: true },
   templateId: { type: Schema.Types.ObjectId, ref: 'PredefinedMessageTemplate', required: true },
   sentAt: { type: Date, default: Date.now },
+  readAt: { type: Date },
 });
 
 messageSchema.plugin(basePlugin);
