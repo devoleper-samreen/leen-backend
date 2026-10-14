@@ -1,12 +1,25 @@
 import { Request, Response } from 'express';
 import { ApiError } from '@leen/shared';
+import { CustomerProfile } from '../models/customer-profile.model';
 
-export async function getMyProfile(_req: Request, _res: Response): Promise<void> {
-  throw new ApiError(501, 'NOT_IMPLEMENTED', 'getMyProfile not implemented yet');
+export async function getMyProfile(req: Request, res: Response): Promise<void> {
+  const profile = await CustomerProfile.findOne({ userId: req.user!.id });
+  if (!profile) {
+    throw new ApiError(404, 'PROFILE_NOT_FOUND', 'Customer profile not found');
+  }
+  res.json({ success: true, data: profile });
 }
 
-export async function updateMyProfile(_req: Request, _res: Response): Promise<void> {
-  throw new ApiError(501, 'NOT_IMPLEMENTED', 'updateMyProfile not implemented yet');
+export async function updateMyProfile(req: Request, res: Response): Promise<void> {
+  const profile = await CustomerProfile.findOneAndUpdate(
+    { userId: req.user!.id },
+    { $set: req.body },
+    { new: true },
+  );
+  if (!profile) {
+    throw new ApiError(404, 'PROFILE_NOT_FOUND', 'Customer profile not found');
+  }
+  res.json({ success: true, data: profile });
 }
 
 export async function submitPartnerKyb(_req: Request, _res: Response): Promise<void> {

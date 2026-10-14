@@ -5,5 +5,7 @@ export * from './middlewares/error-handler';
 export * from './middlewares/async-handler';
 export * from './middlewares/request-logger';
 export * from './middlewares/verify-jwt';
+export * from './middlewares/validate';
+export * from './middlewares/rate-limit';
 export * from './mongoose/base-plugin';
 export * from './mongoose/connect';

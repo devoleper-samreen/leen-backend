@@ -8,7 +8,7 @@ servers:
 paths:
   /auth/signup:
     post:
-      summary: Create a new account (customer/partner/staff/admin)
+      summary: Create a new customer account
       tags: [Auth]
       requestBody:
         required: true
@@ -28,22 +28,59 @@ paths:
             schema: { $ref: '#/components/schemas/LoginRequest' }
       responses:
         '200': { description: Authenticated, content: { application/json: { schema: { $ref: '#/components/schemas/AuthResponse' } } } }
+  /auth/otp/send:
+    post:
+      summary: Request an OTP code for signup, login or password reset
+      tags: [Auth]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/SendOtpRequest' }
+      responses:
+        '200': { description: OTP sent }
   /auth/otp/verify:
     post:
-      summary: Verify an OTP code
+      summary: Verify an OTP code (issues tokens when purpose is signup)
       tags: [Auth]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/VerifyOtpRequest' }
       responses:
         '200': { description: OTP verified }
   /auth/token/refresh:
     post:
-      summary: Exchange a refresh token for a new access token
+      summary: Exchange a refresh token for a new token pair
       tags: [Auth]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/RefreshTokenRequest' }
       responses:
-        '200': { description: Token refreshed }
+        '200': { description: Token refreshed, content: { application/json: { schema: { $ref: '#/components/schemas/AuthResponse' } } } }
+  /auth/logout:
+    post:
+      summary: Revoke a refresh token
+      tags: [Auth]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/RefreshTokenRequest' }
+      responses:
+        '200': { description: Logged out }
   /auth/password/reset:
     post:
-      summary: Reset password via OTP (mobile) or email link (admin)
+      summary: Reset password using an OTP sent to the account's phone
       tags: [Auth]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/ResetPasswordRequest' }
       responses:
         '200': { description: Password reset }
   /profiles/me:
@@ -112,33 +149,50 @@ components:
   schemas:
     SignupRequest:
       type: object
-      required: [phone, password, role]
+      description: Customer signup only - partner/staff/admin accounts are created through other flows.
+      required: [phone, password, fullName]
       properties:
         fullName: { type: string }
         email: { type: string }
         phone: { type: string }
         password: { type: string }
-        role: { type: string, enum: [customer, partner, staff, admin, subadmin] }
+        language: { type: string, enum: [en, ar] }
     LoginRequest:
       type: object
-      required: [password]
+      required: [identifier, password]
+      properties:
+        identifier: { type: string, description: 'Phone or email' }
+        password: { type: string }
+    SendOtpRequest:
+      type: object
+      required: [phone, purpose]
       properties:
         phone: { type: string }
-        email: { type: string }
-        password: { type: string }
-        otp: { type: string }
+        purpose: { type: string, enum: [login, signup, reset_password] }
+    VerifyOtpRequest:
+      type: object
+      required: [phone, code, purpose]
+      properties:
+        phone: { type: string }
+        code: { type: string }
+        purpose: { type: string, enum: [login, signup, reset_password] }
+    RefreshTokenRequest:
+      type: object
+      required: [refreshToken]
+      properties:
+        refreshToken: { type: string }
+    ResetPasswordRequest:
+      type: object
+      required: [phone, code, newPassword]
+      properties:
+        phone: { type: string }
+        code: { type: string }
+        newPassword: { type: string }
     AuthResponse:
       type: object
       properties:
         accessToken: { type: string }
         refreshToken: { type: string }
-        user: { $ref: '#/components/schemas/UserSummary' }
-    UserSummary:
-      type: object
-      properties:
-        id: { type: string }
-        role: { type: string }
-        status: { type: string }
     Profile:
       type: object
       description: Shape varies by role (CustomerProfile/PartnerProfile/StaffProfile/AdminProfile)

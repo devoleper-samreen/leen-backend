@@ -9,8 +9,10 @@
     "lint": "eslint src --ext .ts"
   },
   "dependencies": {
+    "express-rate-limit": "^7.4.0",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.5.2"
+    "mongoose": "^8.5.2",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/jsonwebtoken": "^9.0.6",
