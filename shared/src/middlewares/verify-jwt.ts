@@ -24,27 +24,34 @@ declare global {
  */
 export function verifyJwt(secret: string) {
   return (req: Request, _res: Response, next: NextFunction): void => {
+    // Step 1: check the Authorization header is present and well-formed
     const header = req.headers.authorization;
-    if (!header?.startsWith('Bearer ')) {
+    if (!header || !header.startsWith('Bearer ')) {
       throw new ApiError(401, 'UNAUTHORIZED', 'Missing bearer token');
     }
 
+    // Step 2: verify the token and attach the user to the request
+    const token = header.slice('Bearer '.length);
     try {
-      const token = header.slice('Bearer '.length);
       const payload = jwt.verify(token, secret) as AuthenticatedUser;
       req.user = { id: payload.id, role: payload.role };
-      next();
     } catch {
       throw new ApiError(401, 'UNAUTHORIZED', 'Invalid or expired token');
     }
+
+    // Step 3: continue to the next handler
+    next();
   };
 }
 
 export function requireRole(...roles: Role[]) {
   return (req: Request, _res: Response, next: NextFunction): void => {
+    // Step 1: make sure the user is logged in and has one of the allowed roles
     if (!req.user || !roles.includes(req.user.role)) {
       throw new ApiError(403, 'FORBIDDEN', 'Insufficient permissions');
     }
+
+    // Step 2: continue to the next handler
     next();
   };
 }

@@ -13,14 +13,14 @@ const otpPurposeSchema = z.enum(['login', 'signup', 'reset_password']);
 
 export const signupSchema = z.object({
   phone: phoneSchema,
-  email: z.string().trim().email().optional(),
+  email: z.string().trim().toLowerCase().email().optional(),
   password: passwordSchema,
   fullName: z.string().trim().min(2, 'Full name is required'),
   language: z.enum(['en', 'ar']).default('en'),
 });
 
 export const loginSchema = z.object({
-  identifier: z.string().trim().min(1, 'Phone or email is required'),
+  identifier: z.string().trim().toLowerCase().min(1, 'Phone or email is required'),
   password: z.string().min(1, 'Password is required'),
 });
 

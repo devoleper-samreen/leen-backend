@@ -13,10 +13,10 @@ const JWT_SECRET = process.env.JWT_SECRET ?? 'change-me';
 
 export const profilesRouter = Router();
 
-profilesRouter.use(verifyJwt(JWT_SECRET));
+const requireAuth = verifyJwt(JWT_SECRET);
 
-profilesRouter.get('/me', asyncHandler(getMyProfile));
-profilesRouter.patch('/me', validateBody(updateProfileSchema), asyncHandler(updateMyProfile));
-profilesRouter.post('/partners/kyb', asyncHandler(submitPartnerKyb));
-profilesRouter.get('/partners/:partnerId/staff', asyncHandler(listPartnerStaff));
-profilesRouter.post('/partners/:partnerId/staff', asyncHandler(addPartnerStaff));
+profilesRouter.get('/me', requireAuth, asyncHandler(getMyProfile));
+profilesRouter.patch('/me', requireAuth, validateBody(updateProfileSchema), asyncHandler(updateMyProfile));
+profilesRouter.post('/partners/kyb', requireAuth, asyncHandler(submitPartnerKyb));
+profilesRouter.get('/partners/:partnerId/staff', requireAuth, asyncHandler(listPartnerStaff));
+profilesRouter.post('/partners/:partnerId/staff', requireAuth, asyncHandler(addPartnerStaff));
