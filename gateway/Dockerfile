@@ -4,6 +4,7 @@ COPY package*.json ./
 COPY tsconfig.base.json ./
 COPY shared ./shared
 COPY gateway ./gateway
+COPY services ./services
 WORKDIR /app/gateway
 RUN npm install
 EXPOSE 8080
